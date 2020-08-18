@@ -1,6 +1,6 @@
 {
   "service": {
-    "version": "1.0.0.1",
+    "version": "1.0.0.0",
     "specVersion": "v3",
     "catalog_metadata": {
       "name": "Demo EC2",
@@ -81,53 +81,7 @@
         "type": "provision",
         "name": "Provision",
         "description": "Default action for deployment of service",
-        "input_parameters": [
-          {
-            "name": "aws_image",
-            "label": "Operating System ID",
-            "customtype": "string",
-            "type": "string",
-            "immutable": false,
-            "hidden": false,
-            "required": true,
-            "secured": false,
-            "description": "Operating system image id / template that should be used when creating the virtual image",
-            "view": "create new",
-            "editable": true,
-            "default": "ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-20200729",
-            "passbyname": false,
-            "dynamicDetails": {},
-            "isDynamic": false
-          },
-          {
-            "name": "aws_image_size",
-            "label": "AWS Image Instance Size",
-            "customtype": "string",
-            "type": "string",
-            "immutable": false,
-            "hidden": false,
-            "required": true,
-            "secured": false,
-            "description": "AWS Image Instance Size",
-            "view": "create new",
-            "editable": true,
-            "default": "t3.nano"
-          },
-          {
-            "name": "public_ssh_key_name",
-            "label": "Public SSH Key Name",
-            "customtype": "string",
-            "type": "string",
-            "immutable": false,
-            "hidden": false,
-            "required": true,
-            "secured": false,
-            "description": "Name of the public SSH key used to connect to the virtual guest",
-            "view": "create new",
-            "editable": true,
-            "default": "cam1234"
-          }
-        ],
+        "input_parameters": [],
         "flow": {
           "conditions": [],
           "templates": [
@@ -141,29 +95,23 @@
                 "template_content_type": "Amazon EC2",
                 "template_provider": "Amazon EC2",
                 "instance_name": "",
+                "cloud_connection_name": "EC2",
                 "template_data_objects": {},
                 "template_params": {
-                  "aws_region": "eu-central-1",
-                  "aws_image": "${input_parameters.aws_image}",
-                  "aws_image_size": "${input_parameters.aws_image_size}",
-                  "aws_ami_owner_id": "582147391765",
-                  "vpc_name_tag": "myvpc",
-                  "subnet_name": "mysubnet",
-                  "public_ssh_key_name": "${input_parameters.public_ssh_key_name}",
+                  "aws_region": "us-east-1",
+                  "aws_image": "ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*",
+                  "aws_image_size": "t2.small",
+                  "aws_ami_owner_id": "099720109477",
+                  "vpc_name_tag": "vpc-0a1a2661",
+                  "subnet_name": "subnet-87095bfa",
+                  "public_ssh_key_name": "niklaushirtkeypair",
                   "public_ssh_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCpN90k7NRF0yxgnnqy4z76BYH/j3gwQwJPI219edd6rE0yfP461XidtaHdp+L0bUDZ5VhbLMgON9dR6+4I+/Je1xj1ZnQJTONv4dj3Ny530VusZpUspCoAJc/Ef+jBMPeP6HV66wl2o0gS4oydVMIURg96rYI/SHIFKfdfPkq9YmSmlYpXkmee0f4Gxp9mrPEV3ChGl8hIzMDPkmKGVC2l9/zxtyRMYcnCOJsjMHBSsSwXmHyAtQUuFnMbqAY/m+4CwM+evTh0Wolh/+HUGMOMX33ziWI0pSLhBu4BYTgHJC40vXnzouOoGyzmEaQYAwAA4ofzBB+zZu9CPu7lKjpR nhirt@niklauss-mbp16.geneva-marziano.ch.ibm.com"
                 },
                 "outputs": [
                   "ip_address"
                 ],
                 "editable": true,
-                "provider_engine_version": "0.11.11",
-                "cloud_connection_names": [
-                  {
-                    "connection_name": "EC2",
-                    "provider": "Amazon EC2"
-                  }
-                ],
-                "isErrorFlow": false
+                "provider_engine_version": "0.11.11"
               }
             }
           ],
@@ -183,25 +131,6 @@
         "description": "To deploy a Standard plan",
         "actions": [],
         "plan_parameters": []
-      },
-      {
-        "name": "Production",
-        "description": "To deploy a Production Plan",
-        "plan_parameters": [
-          {
-            "name": "aws_image_size",
-            "label": "AWS Image Instance Size",
-            "customtype": "string",
-            "type": "string",
-            "immutable": false,
-            "hidden": false,
-            "required": true,
-            "secured": false,
-            "description": "AWS Image Instance Size",
-            "editable": true,
-            "default": "t3.micro"
-          }
-        ]
       }
     ]
   }
