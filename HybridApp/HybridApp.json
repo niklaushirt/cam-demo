@@ -295,6 +295,7 @@
                     "provider": "IBM"
                   }
                 ],
+                "cloud_connection_name": "IBM",
                 "provider_engine_version": "0.11.11"
               }
             },
@@ -631,9 +632,10 @@
                 "editable": true,
                 "cloud_connection_names": [
                   {
-                    "provider": "VMware vSphere"
+                    "provider": "vSphere"
                   }
                 ],
+                "cloud_connection_name": "vSphere",
                 "provider_engine_version": "0.11.11"
               }
             }
