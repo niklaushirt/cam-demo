@@ -6,7 +6,7 @@
       "name": "HybridApp",
       "description": "",
       "image": "serviceicon_1.svg",
-      "category": "Hybrid Cloud",
+      "category": "CloudServices",
       "bullets": [],
       "providerDisplayName": "IBM",
       "longDescription": "",
@@ -145,18 +145,115 @@
             "editable": true,
             "options": [
               {
-                "label": "Dev",
                 "value": "dev",
-                "default": true
+                "label": "dev"
               },
               {
-                "label": "Test",
                 "value": "test",
+                "label": "test"
+              },
+              {
+                "value": "prod",
+                "label": "prod"
+              }
+            ]
+          },
+          {
+            "name": "LibertyNode01_number_of_cores",
+            "label": "IBMCloud VSI Number of Cores - LibertyNode01",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "description": "Number of CPU cores, which is required to be a positive Integer",
+            "view": "create new",
+            "editable": true,
+            "options": [
+              {
+                "label": "1",
+                "value": 1,
                 "default": false
               },
               {
-                "label": "Prod",
-                "value": "prod",
+                "label": "2",
+                "value": 2,
+                "default": true
+              },
+              {
+                "label": "4",
+                "value": 4,
+                "default": false
+              },
+              {
+                "label": "8",
+                "value": 8,
+                "default": false
+              },
+              {
+                "label": "12",
+                "value": 12,
+                "default": false
+              },
+              {
+                "label": "16",
+                "value": 16,
+                "default": false
+              },
+              {
+                "label": "32",
+                "value": 32,
+                "default": false
+              }
+            ]
+          },
+          {
+            "name": "LibertyNode01_memory",
+            "label": "IBMCloud VSI Memory - LibertyNode01",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "description": "Amount of Memory (MBs), which is required to be one or more times of 1024",
+            "view": "create new",
+            "editable": true,
+            "options": [
+              {
+                "label": "1024",
+                "value": 1024,
+                "default": false
+              },
+              {
+                "label": "2048",
+                "value": 2048,
+                "default": false
+              },
+              {
+                "label": "4096",
+                "value": 4096,
+                "default": true
+              },
+              {
+                "label": "8192",
+                "value": 8192,
+                "default": false
+              },
+              {
+                "label": "12288",
+                "value": 12288,
+                "default": false
+              },
+              {
+                "label": "16384",
+                "value": 16384,
+                "default": false
+              },
+              {
+                "label": "32768",
+                "value": 32768,
                 "default": false
               }
             ]
@@ -177,13 +274,13 @@
                   {
                     "case": "test",
                     "sequence": {
-                      "0": "ibmdb2en52ac7439"
+                      "0": "apachehted3a61a1"
                     }
                   },
                   {
                     "case": "prod",
                     "sequence": {
-                      "0": "ibmdb2en90472818"
+                      "0": "singlevi71e42131"
                     }
                   }
                 ],
@@ -232,71 +329,33 @@
               }
             },
             {
-              "IBM WebSphere Application Server Liberty on a single virtual machine - IBM": {
-                "title": "WebSphere IBM",
-                "template_name": "IBM WebSphere Application Server Liberty on a single virtual machine - IBM",
-                "version": "2.2",
-                "id": "ibmwebsp431eff95",
+              "2 Virtual Servers with SSH keys": {
+                "title": "Web IBM",
+                "template_name": "2 Virtual Servers with SSH keys",
+                "version": "2.4",
+                "id": "2virtual418dfc20",
                 "template_type": "Terraform",
                 "template_content_type": "IBM",
                 "template_provider": "IBM",
                 "instance_name": "",
-                "template_data_objects": {
-                  "bastionhost": "DefaultNoBastionHostRequired",
-                  "advanced_content_runtime_chef": ""
-                },
+                "template_data_objects": {},
                 "template_params": {
-                  "LibertyNode01_datacenter": "dal09",
-                  "LibertyNode01_dedicated_acct_host_only": "false",
-                  "LibertyNode01_hourly_billing": "true",
-                  "LibertyNode01_network_speed": 1000,
-                  "LibertyNode01_private_network_only": "false",
-                  "LibertyNode01_memory": 4096,
-                  "LibertyNode01_number_of_cores": 2,
-                  "LibertyNode01_was_liberty_edition": "base",
-                  "LibertyNode01_was_liberty_liberty_servers_server1_keystore_password": "",
-                  "LibertyNode01_was_liberty_liberty_servers_server1_users_admin_user_name": "admin",
-                  "LibertyNode01_was_liberty_liberty_servers_server1_users_admin_user_password": "",
-                  "LibertyNode01_was_liberty_wlp_user_dir": "/opt/IBM/WebSphere/Liberty/usr",
-                  "LibertyNode01_was_liberty_liberty_servers_server1_feature": "webProfile-7.0 adminCenter-1.0",
-                  "LibertyNode01_was_liberty_install_grp": "root",
-                  "LibertyNode01_was_liberty_install_user": "root",
-                  "LibertyNode01_was_liberty_liberty_servers_server1_keystore_id": "defaultKeyStore",
-                  "LibertyNode01_was_liberty_runas_user": "root",
-                  "LibertyNode01_was_liberty_liberty_servers_server1_httpport": "9080",
-                  "LibertyNode01_was_liberty_liberty_servers_server1_httpsport": "9443",
-                  "LibertyNode01_was_liberty_liberty_servers_server1_name": "defaultServer",
-                  "LibertyNode01_was_liberty_base_version": "18.0.2",
-                  "LibertyNode01_was_liberty_fixpack": "18.0.0.3",
-                  "LibertyNode01_was_liberty_fixpack_filename": "",
-                  "LibertyNode01_was_liberty_fixpack_sha256": "",
-                  "LibertyNode01_was_liberty_fixpack_java_files": "",
-                  "LibertyNode01-image": "REDHAT_7_64",
-                  "LibertyNode01-os_admin_user": "",
-                  "LibertyNode01_root_disk_size": "100",
-                  "LibertyNode01-name": "",
-                  "runtime_domain": "",
-                  "LibertyNode01_was_liberty_install_dir": "/opt/IBM/WebSphere/Liberty",
-                  "LibertyNode01_was_liberty_liberty_servers_server1_users_admin_user_role": "admin",
-                  "LibertyNode01_local_disk": "false",
-                  "LibertyNode01-mgmt-network-public": "true",
-                  "user_public_ssh_key": "None"
+                  "public_ssh_key": "-----BEGIN OPENSSH PRIVATE KEY-----\nb3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABFwAAAAdzc2gtcn\nNhAAAAAwEAAQAAAQEAqTfdJOzURdMsYJ56suM++gWB/494MEMCTyNtfXnXeqxNMnz+OtV4\nnbWh3afi9G1A2eVYWyzIDjfXUevuCPvyXtcY9WZ0CUzjb+HY9zcud9FbrGaVLKQqACXPxH\n/owTD3j+h1eusJdqNIEuKMnVTCFEYPeq2CP0hyBSn3Xz5KvWJkppWKV5JnntH+BsafZqzx\nFdwoRpfISMzAz5JihlQtpff88bckTGHJwjibIzBwUrEsF5h8gLUFLhZzG6gGP5vuAsDPnr\n04dFqJYf/h1BjDjF9984liNKUi4QbuAWE4ByQuNL1586LjqBss5hGkGAMAAOKH8wQfs2bv\nQj7u5So6UQAAA+jLvTC7y70wuwAAAAdzc2gtcnNhAAABAQCpN90k7NRF0yxgnnqy4z76BY\nH/j3gwQwJPI219edd6rE0yfP461XidtaHdp+L0bUDZ5VhbLMgON9dR6+4I+/Je1xj1ZnQJ\nTONv4dj3Ny530VusZpUspCoAJc/Ef+jBMPeP6HV66wl2o0gS4oydVMIURg96rYI/SHIFKf\ndfPkq9YmSmlYpXkmee0f4Gxp9mrPEV3ChGl8hIzMDPkmKGVC2l9/zxtyRMYcnCOJsjMHBS\nsSwXmHyAtQUuFnMbqAY/m+4CwM+evTh0Wolh/+HUGMOMX33ziWI0pSLhBu4BYTgHJC40vX\nnzouOoGyzmEaQYAwAA4ofzBB+zZu9CPu7lKjpRAAAAAwEAAQAAAQEAilzuSuoHK8ze5WXQ\nKANeFCt6v089VCEGe1UZitaclWbbfGPtsIeqJzJD1y0WiwvmUgSQeYSlU9LfEdIbAWeZJ2\nkztDyAtrYS5gHCWWnaaghasB307dqRqStBtodr9sOmORo3LTmPtF0Qariph1+tjcw3jfTf\nogUHjidhaJRTooPED+cLm2/SIcHPAeRpTd1pcGlbQXfgKtxHi6RexlO1sh8Ojc6DPnhdj6\nGdL5ksRJvCtYH4JMNGVGGzSdL00uNJqBiCWbJaaVbU8nBXrpDV5GwjQUMuyOBgKzqxkv68\n32WG7L7NA3NJ3lF0Ww0qoTYgWr2z2OYmyQ1oP9ArWHVKXQAAAIA2N0fvjbU1dxBeEd6Tsy\nljx87Jpgwl0FBuxWfk8p/d7chLWEf8MNjp4Q/5YW07+d+WM956piJk6fiCYC7X0A8aixHQ\nyqqm7GphkpXPUA0NuhE3EbFqaYZE1aWtLt+eJI1r1NbKwudqP1DD2xk2IYEnlM3Wjrx4Yu\nij4J/KnBXrggAAAIEA1deC28FsoHZPk4AFjJOIumUn35rC79E5bkcznjU9I9dKs7FtW8eW\notH0tDYn1T3AEhWiQOT2PYLILGvgy4+f6q18kLtVoLz5bkSxYwZm40CtLExgfRseOX7vqD\nUehBBh2wTgdsbNeHqoKeTyf/cWMxbvBvTrczQQXhFanGA9IisAAACBAMqUOJ7lR/iTkFGy\nDa5XzFuoXTSKZQaLki73WzchakvuMZvWKlpzSCxezRKqaHGCzzvkQOTQ6hI60xmxFM3rSz\naBZL0TB9/kleXznmPTnvcrBkzedtYDRg9UusG+8KTxiR2R/WwwJJOee584DZYOKnGYyiw+\n3KiLroUqXasdffsad6aWFuby\n5jaC5pYm0uY29tAQID\n-----END OPENSSH PRIVATE KEY-----",
+                  "datacenter": "dal09",
+                  "first_hostname": "debian-small",
+                  "second_hostname": "ubuntu-medium",
+                  "domain": "sample.com"
                 },
-                "outputs": [
-                  "LibertyNode01_ip",
-                  "LibertyNode01_name",
-                  "LibertyNode01_roles",
-                  "stack_id",
-                  "liberty_version"
-                ],
+                "outputs": [],
                 "editable": true,
                 "cloud_connection_names": [
                   {
-                    "provider": "IBM"
+                    "provider": "IBM",
+                    "connection_name": "IBM"
                   }
                 ],
-                "cloud_connection_name": "IBM",
-                "provider_engine_version": "0.11.11"
+                "provider_engine_version": "0.11.11",
+                "cloud_connection_name": "IBM"
               }
             },
             {
@@ -312,10 +371,10 @@
                 "instance_name": "",
                 "template_dataobjects": {},
                 "template_params": {
-                  "namespace": "",
-                  "arch": "x86_64",
+                  "namespace": "argocd",
+                  "arch": "amd64",
                   "baseNamespace": "default",
-                  "database-bluadminPwd": "",
+                  "database-bluadminPwd": "^(dGVzdA==)",
                   "database-codeset": "UTF-8",
                   "database-collation": "IDENTITY",
                   "database-name": "BLUDB",
@@ -378,129 +437,28 @@
                 },
                 "outputs": [],
                 "editable": true,
-                "template_data_objects": {}
+                "template_data_objects": {},
+                "cloud_connection_name": "MCM Connection"
               }
             },
             {
-              "IBM DB2 Enterprise Server Edition V10.5 multiple instances on a single virtual machine - Amazon EC2": {
+              "Apache HTTP Server basic deployment on a single virtual machine - Amazon EC2": {
                 "title": "DB2 AWS",
-                "template_name": "IBM DB2 Enterprise Server Edition V10.5 multiple instances on a single virtual machine - Amazon EC2",
+                "template_name": "Apache HTTP Server basic deployment on a single virtual machine - Amazon EC2",
                 "version": "2.1",
-                "id": "ibmdb2en52ac7439",
+                "id": "apachehted3a61a1",
                 "template_type": "Terraform",
                 "template_content_type": "Amazon EC2",
                 "template_provider": "Amazon EC2",
                 "instance_name": "",
-                "template_data_objects": {
-                  "bastionhost": "DefaultNoBastionHostRequired",
-                  "advanced_content_runtime_chef": ""
-                },
-                "template_params": {
-                  "aws_ami_owner_id": "309956199498",
-                  "storage-volume_ebs_block_device_delete_on_termination": "true",
-                  "storage-volume_ebs_block_device_encrypted": "true",
-                  "storage-volume_ebs_block_device_name": "/dev/xvdc",
-                  "storage-volume_ebs_block_device_volume_size": 100,
-                  "storage-volume_ebs_block_device_volume_type": "gp2",
-                  "aws_region": "us-east-1",
-                  "DB2Node01_root_block_device_delete_on_termination": "true",
-                  "DB2Node01_root_block_device_volume_size": "100",
-                  "DB2Node01_root_block_device_volume_type": "gp2",
-                  "aws_sg_camc_name": "",
-                  "DB2Node01_subnet_name": "",
-                  "aws_vpc_name": "",
-                  "DB2Node01_associate_public_ip_address": "true",
-                  "DB2Node01_db2_das_password": "",
-                  "DB2Node01_db2_das_username": "db2das1",
-                  "DB2Node01_db2_instances_instance2_databases_database1_codeset": "UTF-8",
-                  "DB2Node01_db2_instances_instance1_databases_database2_codeset": "UTF-8",
-                  "DB2Node01_db2_instances_instance1_databases_database1_codeset": "UTF-8",
-                  "DB2Node01_db2_instances_instance2_databases_database1_db_collate": "SYSTEM",
-                  "DB2Node01_db2_instances_instance1_databases_database1_db_collate": "SYSTEM",
-                  "DB2Node01_db2_instances_instance1_databases_database2_db_collate": "SYSTEM",
-                  "DB2Node01_db2_instances_instance1_port": "50000",
-                  "DB2Node01_db2_instances_instance2_port": "50100",
-                  "DB2Node01_db2_instances_instance1_databases_database1_db_data_path": "/data/db11",
-                  "DB2Node01_db2_instances_instance2_databases_database1_db_data_path": "/data/db21",
-                  "DB2Node01_db2_instances_instance1_databases_database2_db_data_path": "/data/db12",
-                  "DB2Node01_db2_instances_instance1_databases_database2_db_name": "db12",
-                  "DB2Node01_db2_instances_instance2_databases_database1_db_name": "db21",
-                  "DB2Node01_db2_instances_instance1_databases_database1_db_name": "db11",
-                  "DB2Node01_db2_instances_instance1_databases_database2_db_path": "/data/db12",
-                  "DB2Node01_db2_instances_instance1_databases_database1_db_path": "/data/db11",
-                  "DB2Node01_db2_instances_instance2_databases_database1_db_path": "/data/db21",
-                  "DB2Node01_db2_instances_instance1_databases_database2_database_users_db_user1_user_gid": "dbgroup1",
-                  "DB2Node01_db2_instances_instance2_databases_database1_database_users_db_user1_user_gid": "dbgroup1",
-                  "DB2Node01_db2_instances_instance1_databases_database1_database_users_db_user1_user_gid": "dbgroup1",
-                  "DB2Node01_db2_instances_instance1_databases_database1_database_users_db_user1_user_name": "dbuser1",
-                  "DB2Node01_db2_instances_instance1_databases_database2_database_users_db_user1_user_name": "dbuser1",
-                  "DB2Node01_db2_instances_instance2_databases_database1_database_users_db_user1_user_name": "dbuser1",
-                  "DB2Node01_db2_instances_instance1_databases_database2_database_users_db_user1_user_password": "",
-                  "DB2Node01_db2_instances_instance1_databases_database1_database_users_db_user1_user_password": "",
-                  "DB2Node01_db2_instances_instance2_databases_database1_database_users_db_user1_user_password": "",
-                  "DB2Node01_db2_instances_instance1_fenced_groupname": "db2fenc1",
-                  "DB2Node01_db2_instances_instance2_fenced_groupname": "db2fenc2",
-                  "DB2Node01_db2_instances_instance1_fenced_password": "",
-                  "DB2Node01_db2_instances_instance2_fenced_password": "",
-                  "DB2Node01_db2_instances_instance2_fenced_username": "db2fenc2",
-                  "DB2Node01_db2_instances_instance1_fenced_username": "db2fenc1",
-                  "DB2Node01_db2_fp_version": "10.5.0.9",
-                  "DB2Node01_db2_install_dir": "/opt/ibm/db2/V10.5",
-                  "DB2Node01_db2_instances_instance1_instance_dir": "/instances/db2inst1",
-                  "DB2Node01_db2_instances_instance2_instance_dir": "/instances/db2inst2",
-                  "DB2Node01_db2_instances_instance2_instance_groupname": "db2iadm2",
-                  "DB2Node01_db2_instances_instance1_instance_groupname": "db2iadm1",
-                  "DB2Node01_db2_instances_instance1_instance_password": "",
-                  "DB2Node01_db2_instances_instance2_instance_password": "",
-                  "DB2Node01_db2_instances_instance1_instance_username": "db2inst1",
-                  "DB2Node01_db2_instances_instance2_instance_username": "db2inst2",
-                  "DB2Node01_db2_instances_instance1_databases_database1_pagesize": "4096",
-                  "DB2Node01_db2_instances_instance2_databases_database1_pagesize": "4096",
-                  "DB2Node01_db2_instances_instance1_databases_database2_pagesize": "4096",
-                  "DB2Node01_db2_instances_instance1_databases_database2_territory": "US",
-                  "DB2Node01_db2_instances_instance2_databases_database1_territory": "US",
-                  "DB2Node01_db2_instances_instance1_databases_database1_territory": "US",
-                  "DB2Node01-flavor": "t2.large",
-                  "DB2Node01-image": "RHEL-7.4_HVM_GA",
-                  "DB2Node01-os_admin_user": "",
-                  "DB2Node01-name": "",
-                  "runtime_domain": "",
-                  "DB2Node01-mgmt-network-public": "true",
-                  "DB2Node01_linux_physicalvolumes_physicalvolume1_device": "/dev/sdz",
-                  "DB2Node01_linux_physicalvolumes_physicalvolume1_logicalvolumes_logicalvolume1_filesystem": "ext4",
-                  "DB2Node01_linux_physicalvolumes_physicalvolume1_logicalvolumes_logicalvolume2_filesystem": "ext4",
-                  "DB2Node01_linux_physicalvolumes_physicalvolume1_logicalvolumes_logicalvolume4_filesystem": "ext4",
-                  "DB2Node01_linux_physicalvolumes_physicalvolume1_logicalvolumes_logicalvolume3_filesystem": "ext4",
-                  "DB2Node01_linux_physicalvolumes_physicalvolume1_logicalvolumes_logicalvolume4_lv_name": "db21",
-                  "DB2Node01_linux_physicalvolumes_physicalvolume1_logicalvolumes_logicalvolume1_lv_name": "instances",
-                  "DB2Node01_linux_physicalvolumes_physicalvolume1_logicalvolumes_logicalvolume3_lv_name": "db12",
-                  "DB2Node01_linux_physicalvolumes_physicalvolume1_logicalvolumes_logicalvolume2_lv_name": "db11",
-                  "DB2Node01_linux_physicalvolumes_physicalvolume1_logicalvolumes_logicalvolume3_lv_size": "20G",
-                  "DB2Node01_linux_physicalvolumes_physicalvolume1_logicalvolumes_logicalvolume4_lv_size": "20G",
-                  "DB2Node01_linux_physicalvolumes_physicalvolume1_logicalvolumes_logicalvolume1_lv_size": "19G",
-                  "DB2Node01_linux_physicalvolumes_physicalvolume1_logicalvolumes_logicalvolume2_lv_size": "40G",
-                  "DB2Node01_linux_physicalvolumes_physicalvolume1_logicalvolumes_logicalvolume3_mountpoint": "/data/db12",
-                  "DB2Node01_linux_physicalvolumes_physicalvolume1_logicalvolumes_logicalvolume2_mountpoint": "/data/db11",
-                  "DB2Node01_linux_physicalvolumes_physicalvolume1_logicalvolumes_logicalvolume1_mountpoint": "/instances",
-                  "DB2Node01_linux_physicalvolumes_physicalvolume1_logicalvolumes_logicalvolume4_mountpoint": "/data/db21",
-                  "DB2Node01_linux_physicalvolumes_physicalvolume1_logicalvolumes_logicalvolume2_options": "rw",
-                  "DB2Node01_linux_physicalvolumes_physicalvolume1_logicalvolumes_logicalvolume4_options": "rw",
-                  "DB2Node01_linux_physicalvolumes_physicalvolume1_logicalvolumes_logicalvolume1_options": "rw",
-                  "DB2Node01_linux_physicalvolumes_physicalvolume1_logicalvolumes_logicalvolume3_options": "rw",
-                  "DB2Node01_linux_physicalvolumes_physicalvolume1_size": "100",
-                  "DB2Node01_linux_physicalvolumes_physicalvolume1_vg_name": "data",
-                  "user_public_ssh_key": "None"
-                },
-                "outputs": [
-                  "DB2Node01_ip",
-                  "DB2Node01_name",
-                  "DB2Node01_roles",
-                  "stack_id"
-                ],
+                "template_data_objects": {},
+                "template_params": {},
+                "outputs": [],
                 "editable": true,
                 "cloud_connection_names": [
                   {
-                    "provider": "Amazon EC2"
+                    "provider": "Amazon EC2",
+                    "connection_name": "EC2"
                   }
                 ],
                 "cloud_connection_name": "EC2",
@@ -508,135 +466,49 @@
               }
             },
             {
-              "IBM DB2 Enterprise Server Edition V10.5 multiple disks on a single virtual machine - VMware vSphere": {
+              "SingleVirtualMachine": {
                 "title": "DB2 vSphere",
-                "template_name": "IBM DB2 Enterprise Server Edition V10.5 multiple disks on a single virtual machine - VMware vSphere",
-                "version": "2.1",
-                "id": "ibmdb2en90472818",
+                "template_name": "SingleVirtualMachine",
+                "version": "2.4",
+                "id": "singlevi71e42131",
                 "template_type": "Terraform",
                 "template_content_type": "VMware vSphere",
                 "template_provider": "VMware vSphere",
                 "instance_name": "",
-                "template_data_objects": {
-                  "bastionhost": "DefaultNoBastionHostRequired",
-                  "httpproxy": "DefaultNoProxyRequired",
-                  "advanced_content_runtime_chef": ""
-                },
+                "template_data_objects": {},
                 "template_params": {
-                  "DB2Node01_db2_das_password": "",
-                  "DB2Node01_db2_das_username": "db2das1",
-                  "DB2Node01_db2_instances_instance1_databases_database1_codeset": "UTF-8",
-                  "DB2Node01_db2_instances_instance1_databases_database1_db_collate": "SYSTEM",
-                  "DB2Node01_db2_instances_instance1_port": "50000",
-                  "DB2Node01_db2_instances_instance1_databases_database1_db_data_path": "/database/data",
-                  "DB2Node01_db2_instances_instance1_databases_database1_db_name": "db01",
-                  "DB2Node01_db2_instances_instance1_databases_database1_db_path": "/database/data",
-                  "DB2Node01_db2_instances_instance1_databases_database1_database_users_db_user1_user_gid": "dbgroup1",
-                  "DB2Node01_db2_instances_instance1_databases_database1_database_users_db_user1_user_name": "dbuser1",
-                  "DB2Node01_db2_instances_instance1_databases_database1_database_users_db_user1_user_password": "",
-                  "DB2Node01_db2_instances_instance1_fenced_groupname": "db2fenc1",
-                  "DB2Node01_db2_instances_instance1_fenced_password": "",
-                  "DB2Node01_db2_instances_instance1_fenced_username": "db2fenc1",
-                  "DB2Node01_db2_fp_version": "10.5.0.9",
-                  "DB2Node01_db2_install_dir": "/opt/ibm/db2/V10.5",
-                  "DB2Node01_db2_instances_instance1_instance_dir": "/instance/db2inst1",
-                  "DB2Node01_db2_instances_instance1_instance_groupname": "db2iadm1",
-                  "DB2Node01_db2_instances_instance1_instance_password": "",
-                  "DB2Node01_db2_instances_instance1_instance_username": "db2inst1",
-                  "DB2Node01_db2_instances_instance1_databases_database1_pagesize": "4096",
-                  "DB2Node01_db2_instances_instance1_databases_database1_territory": "US",
-                  "DB2Node01_dns_servers": [],
-                  "DB2Node01_dns_suffixes": [],
-                  "storage-volume1_disk_datastore": "",
-                  "storage-volume3_disk_datastore": "",
-                  "storage-volume_disk_datastore": "",
-                  "storage-volume2_disk_datastore": "",
-                  "storage-volume3_disk_keep_on_remove": "false",
-                  "storage-volume1_disk_keep_on_remove": "false",
-                  "storage-volume_disk_keep_on_remove": "false",
-                  "storage-volume2_disk_keep_on_remove": "false",
-                  "storage-volume3_disk_name": "disk4",
-                  "storage-volume2_disk_name": "disk3",
-                  "storage-volume1_disk_name": "disk2",
-                  "storage-volume_disk_name": "disk1",
-                  "storage-volume2_disk_size": 10,
-                  "storage-volume_disk_size": 10,
-                  "storage-volume3_disk_size": 20,
-                  "storage-volume1_disk_size": 50,
-                  "DB2Node01_domain": "",
-                  "DB2Node01-image": "",
-                  "DB2Node01-os_admin_user": "",
-                  "DB2Node01-os_password": "",
-                  "DB2Node01_root_disk_size": "100",
-                  "DB2Node01-name": "",
-                  "DB2Node01_root_disk_datastore": "",
-                  "DB2Node01_ipv4_gateway": "",
-                  "DB2Node01_ipv4_address": "",
-                  "DB2Node01_memory": 4096,
-                  "DB2Node01_ipv4_prefix_length": "",
-                  "DB2Node01_number_of_vcpu": 2,
-                  "DB2Node01_network_interface_label": "",
-                  "DB2Node01_linux_filesystems_filesystem3_device": "/dev/xvde",
-                  "DB2Node01_linux_filesystems_filesystem2_device": "/dev/xvdd",
-                  "DB2Node01_linux_filesystems_filesystem4_device": "/dev/xvdf",
-                  "DB2Node01_linux_filesystems_filesystem1_device": "/dev/xvdc",
-                  "DB2Node01_linux_filesystems_filesystem3_force": "true",
-                  "DB2Node01_linux_filesystems_filesystem2_force": "true",
-                  "DB2Node01_linux_filesystems_filesystem1_force": "true",
-                  "DB2Node01_linux_filesystems_filesystem4_force": "true",
-                  "DB2Node01_linux_filesystems_filesystem3_fstype": "ext4",
-                  "DB2Node01_linux_filesystems_filesystem2_fstype": "ext4",
-                  "DB2Node01_linux_filesystems_filesystem4_fstype": "ext4",
-                  "DB2Node01_linux_filesystems_filesystem1_fstype": "ext4",
-                  "DB2Node01_linux_filesystems_filesystem2_group": "default",
-                  "DB2Node01_linux_filesystems_filesystem1_group": "default",
-                  "DB2Node01_linux_filesystems_filesystem4_group": "default",
-                  "DB2Node01_linux_filesystems_filesystem3_group": "default",
-                  "DB2Node01_linux_filesystems_filesystem2_label": "data",
-                  "DB2Node01_linux_filesystems_filesystem3_label": "actlog",
-                  "DB2Node01_linux_filesystems_filesystem1_label": "instance",
-                  "DB2Node01_linux_filesystems_filesystem4_label": "archive",
-                  "DB2Node01_linux_filesystems_filesystem3_mountpoint": "/database/actlog",
-                  "DB2Node01_linux_filesystems_filesystem2_mountpoint": "/database/data",
-                  "DB2Node01_linux_filesystems_filesystem1_mountpoint": "/instance",
-                  "DB2Node01_linux_filesystems_filesystem4_mountpoint": "/database/archive",
-                  "DB2Node01_linux_filesystems_filesystem4_options": "defaults",
-                  "DB2Node01_linux_filesystems_filesystem3_options": "defaults",
-                  "DB2Node01_linux_filesystems_filesystem1_options": "defaults",
-                  "DB2Node01_linux_filesystems_filesystem2_options": "defaults",
-                  "DB2Node01_linux_filesystems_filesystem3_perms": "default",
-                  "DB2Node01_linux_filesystems_filesystem1_perms": "default",
-                  "DB2Node01_linux_filesystems_filesystem4_perms": "default",
-                  "DB2Node01_linux_filesystems_filesystem2_perms": "default",
-                  "DB2Node01_linux_filesystems_filesystem1_size": "10",
-                  "DB2Node01_linux_filesystems_filesystem4_size": "20",
-                  "DB2Node01_linux_filesystems_filesystem2_size": "50",
-                  "DB2Node01_linux_filesystems_filesystem3_size": "10",
-                  "DB2Node01_linux_filesystems_filesystem1_user": "default",
-                  "DB2Node01_linux_filesystems_filesystem2_user": "default",
-                  "DB2Node01_linux_filesystems_filesystem4_user": "default",
-                  "DB2Node01_linux_filesystems_filesystem3_user": "default",
-                  "DB2Node01_cluster": "",
-                  "DB2Node01_datacenter": "",
-                  "DB2Node01_folder": "",
-                  "DB2Node01_adapter_type": "vmxnet3",
-                  "DB2Node01_resource_pool": "",
-                  "user_public_ssh_key": "None"
+                  "vm_1_name": "vm-1",
+                  "vm_1_dns_servers": [],
+                  "vm_1_dns_suffixes": [],
+                  "vm_1_root_disk_keep_on_remove": "false",
+                  "vm_1_domain": "test",
+                  "vm_1-image": "test",
+                  "vm_1_root_disk_size": "25",
+                  "vm_1_root_disk_controller_type": "scsi",
+                  "vm_1_root_disk_datastore": "test",
+                  "vm_1_root_disk_type": "eager_zeroed",
+                  "vm_1_ipv4_gateway": "test",
+                  "vm_1_ipv4_address": "test",
+                  "vm_1_memory": "1024",
+                  "vm_1_ipv4_prefix_length": "test",
+                  "vm_1_number_of_vcpu": "1",
+                  "vm_1_network_interface_label": "test",
+                  "vm_1_cluster": "test",
+                  "vm_1_datacenter": "test",
+                  "vm_1_folder": "test",
+                  "vm_1_adapter_type": "vmxnet3",
+                  "vm_1_resource_pool": "test"
                 },
-                "outputs": [
-                  "DB2Node01_ip",
-                  "DB2Node01_name",
-                  "DB2Node01_roles",
-                  "stack_id"
-                ],
+                "outputs": [],
                 "editable": true,
                 "cloud_connection_names": [
                   {
-                    "provider": "vSphere"
+                    "provider": "VMware vSphere",
+                    "connection_name": "vSphere"
                   }
                 ],
-                "cloud_connection_name": "vSphere",
-                "provider_engine_version": "0.11.11"
+                "provider_engine_version": "0.12.21",
+                "cloud_connection_name": "vSphere"
               }
             }
           ],
@@ -649,7 +521,9 @@
                   "accept": "application/json",
                   "Content-Type": "application/json"
                 },
-                "editable": true
+                "editable": true,
+                "url": "http://test.com",
+                "method": "GET"
               }
             }
           ],
@@ -658,19 +532,19 @@
               "emailnotification": {
                 "title": "Notify Ready",
                 "type": "email",
-                "receiverList": "",
+                "receiverList": "nikh@ch.ibm.com",
                 "id": "emailnot994e8926",
                 "sender": "CAMadmin",
                 "copyToList": "",
-                "subject": "",
-                "body": "",
+                "subject": "Demo",
+                "body": "Demo",
                 "editable": true
               }
             }
           ],
           "sequence": {
             "0": "googleclab26e59d",
-            "1": "ibmwebsp431eff95",
+            "1": "2virtual418dfc20",
             "2": "decision9b2c7216",
             "3": "resthook1cccb466",
             "4": "emailnot994e8926"
@@ -682,10 +556,287 @@
     ],
     "plans": [
       {
-        "name": "Standard",
-        "description": "To deploy a Standard plan",
-        "actions": [],
-        "plan_parameters": []
+        "name": "Dev",
+        "plan_parameters": [
+          {
+            "name": "environment",
+            "label": "Environment",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "description": "",
+            "editable": true,
+            "options": [
+              {
+                "label": "Dev",
+                "value": "dev",
+                "default": true
+              }
+            ]
+          },
+          {
+            "name": "LibertyNode01_number_of_cores",
+            "label": "IBMCloud VSI Number of Cores - LibertyNode01",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "description": "Number of CPU cores, which is required to be a positive Integer",
+            "editable": true,
+            "options": [
+              {
+                "label": "1",
+                "value": 1,
+                "default": true
+              }
+            ]
+          },
+          {
+            "name": "LibertyNode01_memory",
+            "label": "IBMCloud VSI Memory - LibertyNode01",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "description": "Amount of Memory (MBs), which is required to be one or more times of 1024",
+            "editable": true,
+            "options": [
+              {
+                "label": "1024",
+                "value": 1024,
+                "default": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Test",
+        "description": "",
+        "plan_parameters": [
+          {
+            "name": "environment",
+            "label": "Environment",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "description": "",
+            "editable": true,
+            "options": [
+              {
+                "label": "Dev",
+                "value": "dev",
+                "default": false
+              },
+              {
+                "label": "Test",
+                "value": "test",
+                "default": true
+              }
+            ]
+          },
+          {
+            "name": "LibertyNode01_number_of_cores",
+            "label": "IBMCloud VSI Number of Cores - LibertyNode01",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "description": "Number of CPU cores, which is required to be a positive Integer",
+            "editable": true,
+            "options": [
+              {
+                "label": "1",
+                "value": 1,
+                "default": false
+              },
+              {
+                "label": "2",
+                "value": 2,
+                "default": true
+              },
+              {
+                "label": "4",
+                "value": 4,
+                "default": false
+              }
+            ]
+          },
+          {
+            "name": "LibertyNode01_memory",
+            "label": "IBMCloud VSI Memory - LibertyNode01",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "description": "Amount of Memory (MBs), which is required to be one or more times of 1024",
+            "editable": true,
+            "options": [
+              {
+                "label": "1024",
+                "value": 1024,
+                "default": false
+              },
+              {
+                "label": "2048",
+                "value": 2048,
+                "default": false
+              },
+              {
+                "label": "4096",
+                "value": 4096,
+                "default": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Prod",
+        "description": "",
+        "plan_parameters": [
+          {
+            "name": "environment",
+            "label": "Environment",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "description": "",
+            "editable": true,
+            "options": [
+              {
+                "label": "Dev",
+                "value": "dev",
+                "default": false
+              },
+              {
+                "label": "Test",
+                "value": "test",
+                "default": false
+              },
+              {
+                "label": "Prod",
+                "value": "prod",
+                "default": true
+              }
+            ]
+          },
+          {
+            "name": "LibertyNode01_number_of_cores",
+            "label": "IBMCloud VSI Number of Cores - LibertyNode01",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "description": "Number of CPU cores, which is required to be a positive Integer",
+            "editable": true,
+            "options": [
+              {
+                "label": "1",
+                "value": 1,
+                "default": false
+              },
+              {
+                "label": "2",
+                "value": 2,
+                "default": false
+              },
+              {
+                "label": "4",
+                "value": 4,
+                "default": false
+              },
+              {
+                "label": "8",
+                "value": 8,
+                "default": false
+              },
+              {
+                "label": "12",
+                "value": 12,
+                "default": false
+              },
+              {
+                "label": "16",
+                "value": 16,
+                "default": false
+              },
+              {
+                "label": "32",
+                "value": 32,
+                "default": true
+              }
+            ]
+          },
+          {
+            "name": "LibertyNode01_memory",
+            "label": "IBMCloud VSI Memory - LibertyNode01",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "description": "Amount of Memory (MBs), which is required to be one or more times of 1024",
+            "editable": true,
+            "options": [
+              {
+                "label": "1024",
+                "value": 1024,
+                "default": false
+              },
+              {
+                "label": "2048",
+                "value": 2048,
+                "default": false
+              },
+              {
+                "label": "4096",
+                "value": 4096,
+                "default": false
+              },
+              {
+                "label": "8192",
+                "value": 8192,
+                "default": false
+              },
+              {
+                "label": "12288",
+                "value": 12288,
+                "default": false
+              },
+              {
+                "label": "16384",
+                "value": 16384,
+                "default": true
+              },
+              {
+                "label": "32768",
+                "value": 32768,
+                "default": false
+              }
+            ]
+          }
+        ]
       }
     ]
   }
