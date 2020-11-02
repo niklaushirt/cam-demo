@@ -1,5 +1,5 @@
 {
-  "name": "Single Virtual Machine with Private SSH Key",
+  "name": "Demo SingleVM vSphere",
   "description": "Create Virtual Machine and outputs a generated private SSH key",
   "type": "prebuilt",
   "version": "1.0",
@@ -20,7 +20,7 @@
     }
   },
   "metadata": {
-      "displayName": "Single Virtual Machine with Private SSh Key",
+      "displayName": "Demo SingleVM vSphere",
       "longDescription": "Create Virtual Machine and outputs a generated private SSH key",
       "bullets": [
        {
