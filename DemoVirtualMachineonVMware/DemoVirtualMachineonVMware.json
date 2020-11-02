@@ -264,7 +264,7 @@
                 "title": "Demo SingleVM vSphere_63cc86",
                 "template_name": "Demo SingleVM vSphere",
                 "version": "master",
-                "id": "demosing4c214672",
+                "id": "demosing4c214673",
                 "template_type": "Terraform",
                 "template_content_type": "VMware vSphere",
                 "template_provider": "VMware vSphere",
@@ -314,7 +314,7 @@
           "resthooks": [],
           "notifications": [],
           "sequence": {
-            "0": "demosing4c214672"
+            "0": "demosing4c214673"
           },
           "error_sequence": {}
         },
@@ -328,7 +328,7 @@
             "hidden": false,
             "required": false,
             "secured": false,
-            "default": "${templates.demosing4c214672.output.public_ssh_key}"
+            "default": "${templates.demosing4c214673.output.public_ssh_key}"
           },
           {
             "name": "private_ssh_key",
@@ -340,7 +340,7 @@
             "required": false,
             "secured": false,
             "description": "",
-            "default": "${templates.demosing4c214672.output.private_ssh_key}"
+            "default": "${templates.demosing4c214673.output.private_ssh_key}"
           }
         ]
       }
