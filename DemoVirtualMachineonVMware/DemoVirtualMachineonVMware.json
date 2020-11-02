@@ -3,8 +3,8 @@
     "version": "1.0.0.0",
     "specVersion": "v3",
     "catalog_metadata": {
-      "name": "Demo Virtual Machine on VMware1",
-      "description": "Deploys virtual machine on VMware",
+      "name": "Demo Single Virtual Machine on VMware",
+      "description": "Deploys a single virtual machine on VMware",
       "image": "serviceicon_1.svg",
       "category": "Virtual Machine",
       "bullets": [
