@@ -3,7 +3,7 @@
     "version": "1.0.0.0",
     "specVersion": "v3",
     "catalog_metadata": {
-      "name": "Demo Virtual Machine on VMware",
+      "name": "Demo Virtual Machine on VMware1",
       "description": "Deploys virtual machine on VMware",
       "image": "serviceicon_1.svg",
       "category": "Virtual Machine",
@@ -152,7 +152,7 @@
             "description": "",
             "view": "create new",
             "editable": true,
-            "default": "",
+            "default": "vSphereHome",
             "provider": "VMware vSphere",
             "passbyname": false,
             "dynamicDetails": {},
@@ -170,7 +170,10 @@
             "description": "Hostname of virtual machine",
             "view": "create new",
             "editable": true,
-            "default": "demovm"
+            "default": "centosdemo001",
+            "passbyname": false,
+            "dynamicDetails": {},
+            "isDynamic": false
           },
           {
             "name": "vm_ipv4_address",
@@ -184,7 +187,10 @@
             "description": "IPv4 address for vNIC configuration",
             "view": "create new",
             "editable": true,
-            "default": "10.4.10.1"
+            "default": "192.168.10.55",
+            "passbyname": false,
+            "dynamicDetails": {},
+            "isDynamic": false
           },
           {
             "name": "vSphere_Managed_Inventory_Definition",
@@ -198,8 +204,11 @@
             "description": "",
             "view": "create new",
             "editable": true,
-            "default": "",
-            "datatype": "vsphere_managed_inventory_definition"
+            "default": "vSphereManagedInventoryDefinitions_centos",
+            "datatype": "vsphere_managed_inventory_definition",
+            "passbyname": false,
+            "dynamicDetails": {},
+            "isDynamic": false
           },
           {
             "name": "vm_memory",
@@ -227,7 +236,10 @@
             "description": "VM vCPU Allocation.",
             "view": "create new",
             "editable": true,
-            "default": "1"
+            "default": "4",
+            "passbyname": false,
+            "dynamicDetails": {},
+            "isDynamic": false
           },
           {
             "name": "vm_disk_size",
@@ -248,19 +260,19 @@
           "conditions": [],
           "templates": [
             {
-              "Single Virtual Machine with Private SSH Key": {
-                "title": "Single Virtual Machine with Private SSH Key_65290c",
-                "template_name": "Single Virtual Machine with Private SSH Key",
-                "version": "2.4",
-                "id": "singlevi4cf68d93",
+              "Demo SingleVM vSphere": {
+                "title": "Demo SingleVM vSphere_63cc86",
+                "template_name": "Demo SingleVM vSphere",
+                "version": "master",
+                "id": "demosing4c214672",
                 "template_type": "Terraform",
                 "template_content_type": "VMware vSphere",
                 "template_provider": "VMware vSphere",
                 "instance_name": "",
                 "template_data_objects": {
-                  "vsphere_managed_inventory_definition": "vSphereManagedInventoryDefinitions_v1",
                   "bastionhost": "DefaultNoBastionHostRequired",
-                  "httpproxy": "DefaultNoProxyRequired"
+                  "httpproxy": "DefaultNoProxyRequired",
+                  "vsphere_managed_inventory_definition": "vSphereManagedInventoryDefinitions_centos"
                 },
                 "template_params": {
                   "vm_name": "${input_parameters.vm_name}",
@@ -289,21 +301,20 @@
                   "private_ssh_key"
                 ],
                 "editable": true,
-                "provider_engine_version": "0.12.21",
-                "isErrorFlow": false,
                 "cloud_connection_names": [
                   {
-                    "connection_name": "vSphereHome",
-                    "provider": "VMware vSphere"
+                    "provider": "VMware vSphere",
+                    "connection_name": "vSphereHome"
                   }
-                ]
+                ],
+                "provider_engine_version": "0.12.21"
               }
             }
           ],
           "resthooks": [],
           "notifications": [],
           "sequence": {
-            "0": "singlevi4cf68d93"
+            "0": "demosing4c214672"
           },
           "error_sequence": {}
         },
@@ -317,7 +328,7 @@
             "hidden": false,
             "required": false,
             "secured": false,
-            "default": "${templates.singlevi4cf68d93.output.public_ssh_key}"
+            "default": "${templates.demosing4c214672.output.public_ssh_key}"
           },
           {
             "name": "private_ssh_key",
@@ -329,7 +340,7 @@
             "required": false,
             "secured": false,
             "description": "",
-            "default": "${templates.singlevi4cf68d93.output.private_ssh_key}"
+            "default": "${templates.demosing4c214672.output.private_ssh_key}"
           }
         ]
       }
