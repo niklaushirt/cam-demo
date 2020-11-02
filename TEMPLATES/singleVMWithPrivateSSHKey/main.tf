@@ -62,6 +62,9 @@ resource "vsphere_virtual_machine" "vm" {
   datastore_id     = data.vsphere_datastore.datastore.id
   guest_id         = data.vsphere_virtual_machine.vm_image_template.guest_id
   scsi_type        = data.vsphere_virtual_machine.vm_image_template.scsi_type
+  wait_for_guest_net_routable = false
+  wait_for_guest_net_timeout = 0
+  wait_for_guest_ip_timeout  = 3
   tags = vsphere_tag.ibm_terraform_automation_tags[*].id
   clone {
     template_uuid = data.vsphere_virtual_machine.vm_image_template.id
