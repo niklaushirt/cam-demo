@@ -64,7 +64,8 @@ resource "vsphere_virtual_machine" "vm" {
   scsi_type        = data.vsphere_virtual_machine.vm_image_template.scsi_type
   wait_for_guest_net_routable = false
   wait_for_guest_net_timeout = 0
-  wait_for_guest_ip_timeout  = 3
+  wait_for_guest_ip_timeout  = 0
+  ignored_guest_ips=[192.168.10.155]
   tags = vsphere_tag.ibm_terraform_automation_tags[*].id
   clone {
     template_uuid = data.vsphere_virtual_machine.vm_image_template.id
