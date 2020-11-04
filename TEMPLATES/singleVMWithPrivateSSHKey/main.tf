@@ -65,7 +65,7 @@ resource "vsphere_virtual_machine" "vm" {
   wait_for_guest_net_routable = false
   wait_for_guest_net_timeout = 0
   wait_for_guest_ip_timeout  = 0
-  cpu_hot_add_enabled = 1
+  cpu_hot_add_enabled = true
   ignored_guest_ips = [ "192.168.10.155" ]
   tags = vsphere_tag.ibm_terraform_automation_tags[*].id
   clone {

@@ -1,6 +1,6 @@
 {
   "service": {
-    "version": "1.0.0.0",
+    "version": "1.0.0.1",
     "specVersion": "v3",
     "catalog_metadata": {
       "name": "Demo VM Workloads",
@@ -362,7 +362,7 @@
     ],
     "plans": [
       {
-        "name": "Tomcat with Tower Credentials",
+        "name": "Tomcat with Credentials already stored in Tower",
         "description": "Tomcat with Tower Credentials",
         "actions": [],
         "plan_parameters": [
@@ -407,7 +407,7 @@
         ]
       },
       {
-        "name": "Tomcat with Credentials",
+        "name": "Tomcat with dynamic Credentials",
         "plan_parameters": [
           {
             "name": "workload",
@@ -450,12 +450,7 @@
             "default": "CentosLogin"
           }
         ],
-        "description": "Lets you define Credentials for Tomcat"
-      },
-      {
-        "name": "Choose",
-        "description": "Let me choose",
-        "plan_parameters": []
+        "description": "Lets you define dynamic Credentials for Tomcat"
       }
     ]
   }
