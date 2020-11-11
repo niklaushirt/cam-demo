@@ -1,6 +1,6 @@
  {
-    "name": "Virtual Server with SSH key",
-    "description": "A sample cloud resource template that creates a Debian virtual server and ssh key.",
+    "name": "Demo Virtual Server with SSH key",
+    "description": "A sample demo cloud resource template that creates a Debian virtual server and ssh key.",
     "version": "1.0",
     "imageUrl": "./assets/svg/IBM_WebSphere_Standalone.svg",
     "image": "tp_WAS_standalone.png",
@@ -23,7 +23,7 @@
       }
     },
     "metadata": {
-      "displayName": "1 Virtual Server with SSH Key",
+      "displayName": "Demo 1 Virtual Server with SSH Key",
       "providerDisplayName": "IBM",
       "longDescription": "Use this cloud resource template to quickly provision a Debian 7 64 bit virtual server with ssh key in a datacenter of your choice.",
       "bullets": [
