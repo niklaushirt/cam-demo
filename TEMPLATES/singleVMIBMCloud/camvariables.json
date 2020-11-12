@@ -201,6 +201,28 @@
       "system": false,
       "required": true,
       "immutable": false
-    }
+    },
+    {
+        "name": "vm_public",
+        "type": "string",
+        "description": "Public SSH Key",
+        "hidden": false,
+        "label": "Public SSH Key",
+        "secured": false,
+        "system": false,
+        "required": true,
+        "immutable": false
+      },
+    {
+        "name": "vm_private",
+        "type": "string",
+        "description": "Private SSH Key",
+        "hidden": false,
+        "label": "Private SSH Key",
+        "secured": false,
+        "system": false,
+        "required": true,
+        "immutable": false
+      }
   ]
 }
