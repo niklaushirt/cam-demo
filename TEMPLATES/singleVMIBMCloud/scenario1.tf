@@ -61,6 +61,13 @@ output "vm_public" {
   value = "${tls_private_key.mykey.public_key_openssh}"
 }
 
+output "vm_orpheus_public" {
+  value = "${ibm_compute_ssh_key.orpheus_public_key.public_key}"
+}
+
+output "vm_private" {
+  value = "${tls_private_key.mykey.private_key_pem}"
+}
 
 output "vm_public_urlenc" {
   value = "${urlencode(tls_private_key.mykey.public_key_openssh)}"
