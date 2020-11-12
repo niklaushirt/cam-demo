@@ -21,6 +21,7 @@ DemoVMWorkloads/DemoVMWorkloads.json
 ## Shared Parameters
 
 vSphereManagedInventoryDefinitions_v1 of type `vsphere_managed_inventory_definition`
+
 Adapt to your vSphere Instance (Datacenter, ResourcePool, ...)
 
 ## Post install 
