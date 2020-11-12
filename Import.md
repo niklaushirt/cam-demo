@@ -3,6 +3,10 @@
 https://github.com/niklaushirt/cam-demo
 
 
+
+TEMPLATES/singleVMIBMCloud/
+
+
 DemoVirtualMachineonVMware/DemoVirtualMachineonVMware.json
 DemoVMWorkloads/DemoVMWorkloads.json
 
