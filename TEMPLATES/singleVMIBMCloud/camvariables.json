@@ -223,6 +223,28 @@
         "system": false,
         "required": true,
         "immutable": false
-      }
+      },
+      {
+          "name": "vm_public_urlenc",
+          "type": "string",
+          "description": "Public SSH Key URL Encoded",
+          "hidden": false,
+          "label": "Public SSH Key URL Encoded",
+          "secured": false,
+          "system": false,
+          "required": true,
+          "immutable": false
+        },
+      {
+          "name": "vm_private_urlenc",
+          "type": "string",
+          "description": "Private SSH Key URL Encoded",
+          "hidden": false,
+          "label": "Private SSH Key URL Encoded",
+          "secured": false,
+          "system": false,
+          "required": true,
+          "immutable": false
+        }
   ]
 }
