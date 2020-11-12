@@ -49,7 +49,7 @@ resource "ibm_compute_vm_instance" "debian_small_virtual_guest" {
   user_metadata            = "{\"value\":\"newvalue\"}"
   dedicated_acct_host_only = false
   local_disk               = false
-  ssh_key_ids              = ["${ibm_compute_ssh_key.orpheus_public_key.id}"]
+  ssh_key_ids              = ["${tls_private_key.mykey.id}"]
   tags                     = ["${module.camtags.tagslist}"]
 }
 
@@ -62,7 +62,7 @@ output "vm_public" {
 }
 
 output "vm_private" {
-  value = "${tls_private_key.mykey.private_key_pem}"
+  value = "${tls_private_key.mykey.private_key_pem)}"
 }
 
 output "vm_public_urlenc" {
