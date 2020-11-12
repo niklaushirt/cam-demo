@@ -17,18 +17,14 @@ variable "hostname" {
   default     = "debian-small"
 }
 
-
+# This will create a new SSH key that will show up under the \
+# Devices>Manage>SSH Keys in the SoftLayer console.
 resource "tls_private_key" "mykey" {
   algorithm = "RSA"
   rsa_bits  = 4096
 }
 
-# This will create a new SSH key that will show up under the \
-# Devices>Manage>SSH Keys in the SoftLayer console.
-resource "ibm_compute_ssh_key" "orpheus_public_key" {
-  label      = "Orpheus Public Key-${var.hostname}"
-  public_key = "${tls_private_key.mykey.public_key_openssh}"
-}
+
 
 variable "domain" {
   description = "VM domain"
