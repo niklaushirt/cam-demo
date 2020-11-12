@@ -62,5 +62,5 @@ output "vm_public" {
 }
 
 output "vm_private" {
-  value = "${tls_private_key.mykey.private_key_openssh}"
+  value = "${tls_private_key.mykey.private_key_pem}"
 }
