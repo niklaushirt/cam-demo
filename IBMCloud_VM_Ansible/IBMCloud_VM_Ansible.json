@@ -3,7 +3,7 @@
     "version": "1.0.0.0",
     "specVersion": "v3",
     "catalog_metadata": {
-      "name": "DEV Demo IBM Single VM",
+      "name": "Dev Demo Tomcat on IBM Single VM",
       "description": "",
       "image": "serviceicon_1.svg",
       "category": "Virtual Machine",
@@ -317,7 +317,7 @@
                     ]
                   }
                 },
-                "url": "https://hooks.slack.com/services/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",
+                "url": "https://hooks.slack.com/services/CHANGEME",
                 "method": "POST",
                 "payload": {
                   "blocks": [
@@ -386,7 +386,7 @@
                     ]
                   }
                 },
-                "url": "https://hooks.slack.com/services/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",
+                "url": "https://hooks.slack.com/services/CHANGEME",
                 "method": "POST",
                 "payload": {
                   "blocks": [
@@ -402,7 +402,7 @@
                       "block_id": "section567",
                       "text": {
                         "type": "mrkdwn",
-                        "text": "\n :rocket: Access it <${templates.demovirt878f2a41.output.vm_ip}:8080|here>  \n\n\n Thank you for using our service."
+                        "text": "\n :rocket: Access it <http://${templates.demovirt878f2a41.output.vm_ip}:8080|here>  \n\n\n Thank you for using our service."
                       },
                       "accessory": {
                         "type": "image",

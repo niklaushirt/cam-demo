@@ -105,7 +105,7 @@
                   "vpc_name_tag": "vpc-0a1a2661",
                   "subnet_name": "subnet-87095bfa",
                   "public_ssh_key_name": "niklaushirtkeypair",
-                  "public_ssh_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCpN90k7NRF0yxgnnqy4z76BYH/j3gwQwJPI219edd6rE0yfP461XidtaHdp+L0bUDZ5VhbLMgON9dR6+4I+/Je1xj1ZnQJTONv4dj3Ny530VusZpUspCoAJc/Ef+jBMPeP6HV66wl2o0gS4oydVMIURg96rYI/SHIFKfdfPkq9YmSmlYpXkmee0f4Gxp9mrPEV3ChGl8hIzMDPkmKGVC2l9/zxtyRMYcnCOJsjMHBSsSwXmHyAtQUuFnMbqAY/m+4CwM+evTh0Wolh/+HUGMOMX33ziWI0pSLhBu4BYTgHJC40vXnzouOoGyzmEaQYAwAA4ofzBB+zZu9CPu7lKjpR nhirt@niklauss-mbp16.geneva-marziano.ch.ibm.com"
+                  "public_ssh_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCpN90k7NRFasdgggdsgaJTONv4dj3Ny530VusZpUspCoAJc/Ef+jBMPeP6HV66wl2o0gS4oydVMIURg96rYI/SHIFKfdfPkq9YmSmlYpXkmee0f4Gxp9mrPEV3ChGl8hIzMDPkmKGVC2l9/zxtyRMYcnCOJsjMHBSsSwXmHyAtQUuFnMbqAY/m+4CwM+evTh0Wolh/+HUGMOMX33ziWI0pSLhBu4BYTgHJC40vXnzouOoGyzmEaQYAwAA4ofzBB+zZu9CPu7lKjpR nhirt@niklauss-mbp16.geneva-marziano.ch.ibm.com"
                 },
                 "outputs": [
                   "ip_address"
