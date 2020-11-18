@@ -3,7 +3,7 @@
     "version": "1.0.0.0",
     "specVersion": "v3",
     "catalog_metadata": {
-      "name": "AWS Single VM",
+      "name": "Dev Demo Tomcat on AWS Single VM",
       "description": "",
       "image": "serviceicon_1.svg",
       "category": "CloudServices",
@@ -165,14 +165,14 @@
                     "connection_name": "EC2"
                   }
                 ],
-                "cloud_connection_name": "EC2",
                 "provider_engine_version": "0.11.11",
-                "isErrorFlow": false
+                "isErrorFlow": false,
+                "cloud_connection_name": "EC2"
               }
             },
             {
               "Inventory": {
-                "title": "Inventory_efce6b",
+                "title": "Inventory",
                 "template_name": "Inventory",
                 "version": "1.0",
                 "id": "inventor6bcfe2cf",
@@ -200,7 +200,7 @@
             },
             {
               "Credential": {
-                "title": "Credential_dfd29b",
+                "title": "Credential",
                 "template_name": "Credential",
                 "version": "1.0",
                 "id": "credenti0a163b27",
@@ -224,11 +224,11 @@
               }
             },
             {
-              "TomcatNKD": {
-                "title": "TomcatNKD_2d312d",
-                "template_name": "TomcatNKD",
+              "TomcatCentos": {
+                "title": "TomcatCentos",
+                "template_name": "TomcatCentos",
                 "version": "1.0",
-                "id": "tomcatnkfdfd6333",
+                "id": "tomcatce98eb7e34",
                 "template_type": "ANSIBLE",
                 "template_content_type": "ANSIBLE",
                 "template_provider": "ANSIBLE",
@@ -249,12 +249,55 @@
             }
           ],
           "resthooks": [],
-          "notifications": [],
+          "notifications": [
+            {
+              "emailnotification": {
+                "title": "EMail Start",
+                "type": "email",
+                "receiverList": "niklaushirt@gmail.com",
+                "id": "emailnotaea0758c",
+                "sender": "CAMadmin",
+                "copyToList": "",
+                "subject": "Your Order is being provisioned",
+                "body": "The VM for your order is being provisioned. \\n",
+                "editable": true
+              }
+            },
+            {
+              "emailnotification": {
+                "title": "EMail VM",
+                "type": "email",
+                "receiverList": "niklaushirt@gmail.com",
+                "id": "emailnota1ae7ee8",
+                "sender": "CAMadmin",
+                "copyToList": "",
+                "subject": "Your Order ${templates.demosinga0874f5b.instance_name} - VM Ready",
+                "body": "The VM for your order ${templates.demosinga0874f5b.instance_name} has been provisioned. \n\nIt can be reached at ${templates.demosinga0874f5b.output.ip_address}\n\nThe SSH Key is: \n${templates.demosinga0874f5b.output.vm_private}",
+                "editable": true
+              }
+            },
+            {
+              "emailnotification": {
+                "title": "EMail",
+                "type": "email",
+                "receiverList": "niklaushirt@gmail.com",
+                "id": "emailnot216c7c2c",
+                "sender": "CAMadmin",
+                "copyToList": "",
+                "subject": "Your Order ${templates.demosinga0874f5b.instance_name} is ready",
+                "body": "Your Order ${templates.demosinga0874f5b.instance_name} has been completed.\n\nYour Tomcat instance can be reached at \n\nhttp://${templates.demosinga0874f5b.output.ip_address}:8080",
+                "editable": true
+              }
+            }
+          ],
           "sequence": {
-            "0": "demosinga0874f5b",
-            "1": "inventor6bcfe2cf",
-            "2": "credenti0a163b27",
-            "3": "tomcatnkfdfd6333"
+            "0": "emailnotaea0758c",
+            "1": "demosinga0874f5b",
+            "2": "emailnota1ae7ee8",
+            "3": "inventor6bcfe2cf",
+            "4": "credenti0a163b27",
+            "5": "tomcatce98eb7e34",
+            "6": "emailnot216c7c2c"
           },
           "error_sequence": {}
         },

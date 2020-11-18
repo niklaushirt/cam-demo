@@ -192,9 +192,9 @@
                     "connection_name": "IBM"
                   }
                 ],
-                "cloud_connection_name": "IBM",
                 "provider_engine_version": "0.11.11",
-                "isErrorFlow": false
+                "isErrorFlow": false,
+                "cloud_connection_name": "IBM"
               }
             },
             {
@@ -214,8 +214,8 @@
                   "inventoryName": "test1",
                   "extraVars": {},
                   "hostgroup": {
-                    "None": "${templates.demovirt878f2a41.output.vm_ip}",
-                    "tomcat-servers": "${templates.demovirt878f2a41.output.vm_ip}"
+                    "None": "${templates.demosing25dc4169.output.vm_ip}",
+                    "tomcat-servers": "${templates.demosing25dc4169.output.vm_ip}"
                   }
                 },
                 "outputs": [
@@ -239,9 +239,9 @@
                 "cloud_connection_name": "AnsibleTower",
                 "template_data_objects": {},
                 "template_params": {
-                  "credential_name_suffix": "${templates.demovirt878f2a41.hostname}",
+                  "credential_name_suffix": "${templates.demosing25dc4169.hostname}",
                   "user_name": "root",
-                  "ssh_private_key": "${templates.demovirt878f2a41.output.vm_private}",
+                  "ssh_private_key": "${templates.demosing25dc4169.output.vm_private}",
                   "password": ""
                 },
                 "outputs": [
@@ -276,153 +276,58 @@
               }
             }
           ],
-          "resthooks": [
+          "resthooks": [],
+          "notifications": [
             {
-              "resthook": {
-                "title": "Slack VM",
-                "id": "resthookc7562138",
-                "headers": {
-                  "accept": "application/json",
-                  "Content-Type": "application/json"
-                },
+              "emailnotification": {
+                "title": "email start",
+                "type": "email",
+                "receiverList": "niklaushirt@gmail.com",
+                "id": "emailnot4208e496",
+                "sender": "CAMadmin",
+                "copyToList": "",
+                "subject": "Your order is being provisioned",
+                "body": "The VM for your order is being provisioned.",
                 "editable": true,
-                "on_destroy": {
-                  "headers": {
-                    "accept": "application/json",
-                    "Content-Type": "application/json"
-                  },
-                  "method": "POST",
-                  "payload": {
-                    "blocks": [
-                      {
-                        "type": "section",
-                        "text": {
-                          "type": "mrkdwn",
-                          "text": ":white_check_mark: *Your Workload Order has been processed*"
-                        }
-                      },
-                      {
-                        "type": "section",
-                        "block_id": "section567",
-                        "text": {
-                          "type": "mrkdwn",
-                          "text": "\n :rocket: You can get more details <https://ansible-tower-web-svc-ansible-tower.ansibletower-a376efc1170b9b8ace6422196c51e491-0000.eu-de.containers.appdomain.cloud/#/jobs|here>  \n\n\n Thank you for using our service."
-                        },
-                        "accessory": {
-                          "type": "image",
-                          "image_url": "https://raw.githubusercontent.com/niklaushirt/ansible-demo/master/icp4multicloud-management.png",
-                          "alt_text": "Haunted hotel image"
-                        }
-                      }
-                    ]
-                  }
-                },
-                "url": "https://hooks.slack.com/services/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",
-                "method": "POST",
-                "payload": {
-                  "blocks": [
-                    {
-                      "type": "section",
-                      "text": {
-                        "type": "mrkdwn",
-                        "text": ":white_check_mark: *Your VM Order has been processed* "
-                      }
-                    },
-                    {
-                      "type": "section",
-                      "block_id": "section567",
-                      "text": {
-                        "type": "mrkdwn",
-                        "text": "\n :rocket: Your VM is available at: ${templates.demovirt878f2a41.output.vm_ip}  \n\n\n  Thank you for using our service."
-                      },
-                      "accessory": {
-                        "type": "image",
-                        "image_url": "https://raw.githubusercontent.com/niklaushirt/ansible-demo/master/icp4multicloud-management.png",
-                        "alt_text": "Haunted hotel image"
-                      }
-                    }
-                  ]
-                },
                 "isErrorFlow": false
               }
             },
             {
-              "resthook": {
-                "title": "Slack Tomcat",
-                "id": "resthookbe4dff39",
-                "headers": {
-                  "accept": "application/json",
-                  "Content-Type": "application/json"
-                },
+              "emailnotification": {
+                "title": "email vm",
+                "type": "email",
+                "receiverList": "niklaushirt@gmail.com",
+                "id": "emailnot08a6e5f0",
+                "sender": "CAMadmin",
+                "copyToList": "",
+                "subject": "Your Order ${templates.demosing25dc4169.instance_name} - VM Ready",
+                "body": "The VM for your order ${templates.demosing25dc4169.instance_name} has been provisioned. \n\nIt can be reached at ${templates.demosing25dc4169.output.ip_address}\n\nThe SSH Key is: \n${templates.demosing25dc4169.output.vm_private}",
                 "editable": true,
-                "on_destroy": {
-                  "headers": {
-                    "accept": "application/json",
-                    "Content-Type": "application/json"
-                  },
-                  "method": "POST",
-                  "payload": {
-                    "blocks": [
-                      {
-                        "type": "section",
-                        "text": {
-                          "type": "mrkdwn",
-                          "text": ":white_check_mark: *Your Workload Order has been processed*"
-                        }
-                      },
-                      {
-                        "type": "section",
-                        "block_id": "section567",
-                        "text": {
-                          "type": "mrkdwn",
-                          "text": "\n :rocket: You can get more details <https://ansible-tower-web-svc-ansible-tower.ansibletower-a376efc1170b9b8ace6422196c51e491-0000.eu-de.containers.appdomain.cloud/#/jobs|here>  \n\n\n Thank you for using our service."
-                        },
-                        "accessory": {
-                          "type": "image",
-                          "image_url": "https://raw.githubusercontent.com/niklaushirt/ansible-demo/master/icp4multicloud-management.png",
-                          "alt_text": "Haunted hotel image"
-                        }
-                      }
-                    ]
-                  }
-                },
-                "url": "https://hooks.slack.com/services/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",
-                "method": "POST",
-                "payload": {
-                  "blocks": [
-                    {
-                      "type": "section",
-                      "text": {
-                        "type": "mrkdwn",
-                        "text": ":white_check_mark: *Your Workload Order has been processed* "
-                      }
-                    },
-                    {
-                      "type": "section",
-                      "block_id": "section567",
-                      "text": {
-                        "type": "mrkdwn",
-                        "text": "\n :rocket: Access it <http://${templates.demovirt878f2a41.output.vm_ip}:8080|here>  \n\n\n Thank you for using our service."
-                      },
-                      "accessory": {
-                        "type": "image",
-                        "image_url": "https://raw.githubusercontent.com/niklaushirt/ansible-demo/master/icp4multicloud-management.png",
-                        "alt_text": "Haunted hotel image"
-                      }
-                    }
-                  ]
-                }
+                "isErrorFlow": false
+              }
+            },
+            {
+              "emailnotification": {
+                "title": "email complete",
+                "type": "email",
+                "receiverList": "niklaushirt@gmail.com",
+                "id": "emailnot205f40bc",
+                "sender": "CAMadmin",
+                "copyToList": "",
+                "subject": "Your Order ${templates.demosing25dc4169.instance_name} is ready",
+                "body": "Your Order ${templates.demosing25dc4169.instance_name} has been completed.\n\nYour Tomcat instance can be reached at \n\nhttp://${templates.demosing25dc4169.output.ip_address}:8080",
+                "editable": true
               }
             }
           ],
-          "notifications": [],
           "sequence": {
-            "0": "demosing25dc4169",
-            "1": "resthookc7562138",
-            "2": "inventor86d3e6ea",
-            "3": "credentie32da59b",
-            "4": "tomcatnk4c1271f8",
-            "5": "resthookbe4dff39"
+            "0": "emailnot4208e496",
+            "1": "demosing25dc4169",
+            "2": "emailnot08a6e5f0",
+            "3": "inventor86d3e6ea",
+            "4": "credentie32da59b",
+            "5": "tomcatnk4c1271f8",
+            "6": "emailnot205f40bc"
           },
           "error_sequence": {}
         },
