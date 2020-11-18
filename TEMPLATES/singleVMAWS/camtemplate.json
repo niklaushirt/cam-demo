@@ -18,7 +18,7 @@
       "template_source": {
         "githubRepoUrl": "",
         "githubAccessToken": "",
-        "relativePathToTemplateFolder": "TEMPLATES/singleVMWithPrivateSSHKeyAWS",
+        "relativePathToTemplateFolder": "TEMPLATES/singleVMAWS",
         "templateFileName": "main.tf"
       }
     },

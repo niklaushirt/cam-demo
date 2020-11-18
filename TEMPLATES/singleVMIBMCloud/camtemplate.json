@@ -1,5 +1,5 @@
  {
-    "name": "Demo Virtual Server with SSH key",
+    "name": "Demo SingleVM IBM Cloud",
     "description": "A sample demo cloud resource template that creates a Debian virtual server and ssh key.",
     "version": "1.0",
     "imageUrl": "./assets/svg/IBM_WebSphere_Standalone.svg",
@@ -18,7 +18,7 @@
       "template_source": {
         "githubRepoUrl": "",
         "githubAccessToken": "",
-        "relativePathToTemplateFolder": "TEMPLATES/singleVMWithPrivateSSHKeyVSPHERE",
+        "relativePathToTemplateFolder": "TEMPLATES/singleVMIBMCloud",
         "templateFileName": "main.tf"
       }
     },
