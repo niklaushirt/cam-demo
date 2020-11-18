@@ -3,7 +3,7 @@
     "version": "1.0.0.0",
     "specVersion": "v3",
     "catalog_metadata": {
-      "name": "Dev Demo Single Virtual Machine on VMware",
+      "name": "Demo Single Virtual Machine on VMware",
       "description": "Deploys a single virtual machine on VMware",
       "image": "serviceicon_1.svg",
       "category": "Virtual Machine",
@@ -261,10 +261,10 @@
           "templates": [
             {
               "Demo SingleVM vSphere": {
-                "title": "Demo SingleVM vSphere_1feaf8",
+                "title": "Demo SingleVM vSphere_63cc86",
                 "template_name": "Demo SingleVM vSphere",
                 "version": "master",
-                "id": "demosingf5749d30",
+                "id": "demosing4c214673",
                 "template_type": "Terraform",
                 "template_content_type": "VMware vSphere",
                 "template_provider": "VMware vSphere",
@@ -307,64 +307,42 @@
                     "connection_name": "vSphereHome"
                   }
                 ],
-                "provider_engine_version": "0.12.21",
-                "isErrorFlow": false
+                "provider_engine_version": "0.12.21"
               }
             }
           ],
           "resthooks": [],
-          "notifications": [
-            {
-              "emailnotification": {
-                "title": "email start",
-                "type": "email",
-                "receiverList": "niklaushirt@gmail.com",
-                "id": "emailnotdf778bb2",
-                "sender": "CAMadmin",
-                "copyToList": "",
-                "subject": "Your Order ${svc_instance.name} is being provisioned",
-                "body": "The VM for your order ${svc_instance.name} is being provisioned.",
-                "editable": true,
-                "isErrorFlow": false
-              }
-            },
-            {
-              "emailnotification": {
-                "title": "email vm",
-                "type": "email",
-                "receiverList": "niklaushirt@gmail.com",
-                "id": "emailnotfcdde1f0",
-                "sender": "CAMadmin",
-                "copyToList": "",
-                "subject": "Your Order ${templates.demosingf5749d30.instance_name} - VM Ready",
-                "body": "The VM for your order ${templates.demosingf5749d30.instance_name} has been provisioned\n\nIt can be reached at ${templates.demosingf5749d30.output.ip_address}\n\nThe SSH Key is: \n\n${templates.demosingf5749d30.output.vm_private}",
-                "editable": true
-              }
-            },
-            {
-              "emailnotification": {
-                "title": "email failed",
-                "type": "email",
-                "receiverList": "nikh@ch.ibm.com",
-                "id": "emailnot090edbca",
-                "sender": "CAMadmin",
-                "copyToList": "",
-                "subject": "The deployment of your offering ${svc_instance.name} has failed",
-                "body": "The deployment of your offering has failed ${svc_instance.name}",
-                "editable": true
-              }
-            }
-          ],
+          "notifications": [],
           "sequence": {
-            "0": "emailnotdf778bb2",
-            "1": "demosingf5749d30",
-            "2": "emailnotfcdde1f0"
+            "0": "demosing4c214673"
           },
-          "error_sequence": {
-            "0": "emailnot090edbca"
-          }
+          "error_sequence": {}
         },
-        "output_parameters": []
+        "output_parameters": [
+          {
+            "name": "public_ssh_key",
+            "label": "Public SSH Key",
+            "customtype": "string",
+            "type": "string",
+            "immutable": true,
+            "hidden": false,
+            "required": false,
+            "secured": false,
+            "default": "${templates.demosing4c214673.output.public_ssh_key}"
+          },
+          {
+            "name": "private_ssh_key",
+            "label": "Private SSH Key",
+            "customtype": "string",
+            "type": "string",
+            "immutable": true,
+            "hidden": false,
+            "required": false,
+            "secured": false,
+            "description": "",
+            "default": "${templates.demosing4c214673.output.private_ssh_key}"
+          }
+        ]
       }
     ],
     "plans": [

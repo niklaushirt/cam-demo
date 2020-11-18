@@ -252,20 +252,20 @@
           "notifications": [
             {
               "emailnotification": {
-                "title": "EMail Start",
+                "title": "email start",
                 "type": "email",
                 "receiverList": "niklaushirt@gmail.com",
                 "id": "emailnotaea0758c",
                 "sender": "CAMadmin",
                 "copyToList": "",
-                "subject": "Your Order is being provisioned",
-                "body": "The VM for your order is being provisioned. \\n",
+                "subject": "Your order ${svc_instance.name} is being provisioned",
+                "body": "The VM for your order ${svc_instance.name} is being provisioned.",
                 "editable": true
               }
             },
             {
               "emailnotification": {
-                "title": "EMail VM",
+                "title": "email vm",
                 "type": "email",
                 "receiverList": "niklaushirt@gmail.com",
                 "id": "emailnota1ae7ee8",
@@ -278,7 +278,7 @@
             },
             {
               "emailnotification": {
-                "title": "EMail",
+                "title": "email ready",
                 "type": "email",
                 "receiverList": "niklaushirt@gmail.com",
                 "id": "emailnot216c7c2c",
@@ -286,6 +286,19 @@
                 "copyToList": "",
                 "subject": "Your Order ${templates.demosinga0874f5b.instance_name} is ready",
                 "body": "Your Order ${templates.demosinga0874f5b.instance_name} has been completed.\n\nYour Tomcat instance can be reached at \n\nhttp://${templates.demosinga0874f5b.output.ip_address}:8080",
+                "editable": true
+              }
+            },
+            {
+              "emailnotification": {
+                "title": "email fail",
+                "type": "email",
+                "receiverList": "niklaushirt@gmail.com",
+                "id": "emailnotd97f83d0",
+                "sender": "CAMadmin",
+                "copyToList": "",
+                "subject": "The deployment of your offering ${svc_instance.name} has failed",
+                "body": "The deployment of your offering has failed ${svc_instance.name}",
                 "editable": true
               }
             }
@@ -299,7 +312,9 @@
             "5": "tomcatce98eb7e34",
             "6": "emailnot216c7c2c"
           },
-          "error_sequence": {}
+          "error_sequence": {
+            "0": "emailnotd97f83d0"
+          }
         },
         "output_parameters": []
       }

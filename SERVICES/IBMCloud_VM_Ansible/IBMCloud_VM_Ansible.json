@@ -286,8 +286,8 @@
                 "id": "emailnot4208e496",
                 "sender": "CAMadmin",
                 "copyToList": "",
-                "subject": "Your order is being provisioned",
-                "body": "The VM for your order is being provisioned.",
+                "subject": "Your order ${svc_instance.name} is being provisioned",
+                "body": "The VM for your order ${svc_instance.name} is being provisioned.",
                 "editable": true,
                 "isErrorFlow": false
               }
@@ -318,6 +318,19 @@
                 "body": "Your Order ${templates.demosing25dc4169.instance_name} has been completed.\n\nYour Tomcat instance can be reached at \n\nhttp://${templates.demosing25dc4169.output.ip_address}:8080",
                 "editable": true
               }
+            },
+            {
+              "emailnotification": {
+                "title": "email fail",
+                "type": "email",
+                "receiverList": "niklaushirt@gmail.com",
+                "id": "emailnot670a3b33",
+                "sender": "CAMadmin",
+                "copyToList": "",
+                "subject": "The deployment of your offering ${svc_instance.name} has failed",
+                "body": "The deployment of your offering has failed ${svc_instance.name}",
+                "editable": true
+              }
             }
           ],
           "sequence": {
@@ -329,7 +342,9 @@
             "5": "tomcatnk4c1271f8",
             "6": "emailnot205f40bc"
           },
-          "error_sequence": {}
+          "error_sequence": {
+            "0": "emailnot670a3b33"
+          }
         },
         "output_parameters": []
       }

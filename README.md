@@ -9,7 +9,7 @@
 ## Import Templates
 https://github.com/niklaushirt/cam-demo
 
-TEMPLATES/singleVMWithPrivateSSHKey
+TEMPLATES/singleVMWithPrivateSSHKeyVSPHERE
 
 ## Import Services
 

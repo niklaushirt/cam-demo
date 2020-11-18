@@ -1,9 +1,9 @@
 {
   "service": {
-    "version": "1.0.0.2",
+    "version": "1.0.0.1",
     "specVersion": "v3",
     "catalog_metadata": {
-      "name": "Dev Demo Tomcat on VMWare",
+      "name": "Demo VM Workloads",
       "description": "Deploy Workloads to Demo VM",
       "image": "serviceicon_6.svg",
       "category": "CloudServices",
@@ -311,56 +311,51 @@
               }
             }
           ],
-          "resthooks": [],
-          "notifications": [
+          "resthooks": [
             {
-              "emailnotification": {
-                "title": "email start",
-                "type": "email",
-                "receiverList": "niklaushirt@gmail.com",
-                "id": "emailnotdcc5a87d",
-                "sender": "CAMadmin",
-                "copyToList": "",
-                "subject": "Your order ${svc_instance.name} is being provisioned",
-                "body": "The Workload for your order ${svc_instance.name} is being provisioned.",
-                "editable": true
-              }
-            },
-            {
-              "emailnotification": {
-                "title": "email ready",
-                "type": "email",
-                "receiverList": "niklaushirt@gmail.com",
-                "id": "emailnot47746e81",
-                "sender": "CAMadmin",
-                "copyToList": "",
-                "subject": "Your Order is ready",
-                "body": "Your Order has been completed.\n\nYour Tomcat instance can be reached at \n\nhttp://hirt.us:8080",
-                "editable": true
-              }
-            },
-            {
-              "emailnotification": {
-                "title": "email failed",
-                "type": "email",
-                "receiverList": "niklaushirt@gmail.com",
-                "id": "emailnot4ab2afd6",
-                "sender": "CAMadmin",
-                "copyToList": "",
-                "subject": "The deployment of your offering ${svc_instance.name} has failed",
-                "body": "The deployment of your offering has failed ${svc_instance.name}",
-                "editable": true
+              "resthook": {
+                "title": "Slack OK",
+                "id": "resthookb91a0aa9",
+                "headers": {
+                  "accept": "application/json",
+                  "Content-Type": "application/json"
+                },
+                "editable": true,
+                "url": "https://hooks.slack.com/services/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",
+                "method": "POST",
+                "payload": {
+                  "blocks": [
+                    {
+                      "type": "section",
+                      "text": {
+                        "type": "mrkdwn",
+                        "text": ":white_check_mark: *Your Workload Order has been processed*"
+                      }
+                    },
+                    {
+                      "type": "section",
+                      "block_id": "section567",
+                      "text": {
+                        "type": "mrkdwn",
+                        "text": "\n :rocket: You can get more details <https://ansible-tower-web-svc-ansible-tower.ansibletower-a376efc1170b9b8ace6422196c51e491-0000.eu-de.containers.appdomain.cloud/#/jobs|here>  \n\n\n Thank you for using our service."
+                      },
+                      "accessory": {
+                        "type": "image",
+                        "image_url": "https://raw.githubusercontent.com/niklaushirt/ansible-demo/master/icp4multicloud-management.png",
+                        "alt_text": "Haunted hotel image"
+                      }
+                    }
+                  ]
+                }
               }
             }
           ],
+          "notifications": [],
           "sequence": {
-            "0": "emailnotdcc5a87d",
-            "1": "decisionca1722a0",
-            "2": "emailnot47746e81"
+            "0": "decisionca1722a0",
+            "1": "resthookb91a0aa9"
           },
-          "error_sequence": {
-            "0": "emailnot4ab2afd6"
-          }
+          "error_sequence": {}
         },
         "output_parameters": []
       }
