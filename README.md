@@ -1,7 +1,7 @@
 # vSphere Demo
 
 * vSphere Connection must be named `vSphereHome`
-* Ansible Tower must be integrated
+* Ansible Tower must be integrated as `AnsibleTower`
 * Ansible Templates lodaed from https://github.com/niklaushirt/ansible-demo
 
 
@@ -15,8 +15,8 @@ TEMPLATES/singleVMWithPrivateSSHKey
 
 https://github.com/niklaushirt/cam-demo
 
-DemoVirtualMachineonVMware/DemoVirtualMachineonVMware.json
-DemoVMWorkloads/DemoVMWorkloads.json
+SERVICES/DemoVirtualMachineonVMware/DemoVirtualMachineonVMware.json
+SERVICES/DemoVMWorkloads/DemoVMWorkloads.json
 
 ## Shared Parameters
 
@@ -38,7 +38,7 @@ Adapt to your vSphere Instance (Datacenter, ResourcePool, ...)
 ## Connection
 
 * IBM Cloud must be named `IBM`
-* Ansible Tower must be integrated
+* Ansible Tower must be integrated as `AnsibleTower`
 * Ansible Templates lodaed from https://github.com/niklaushirt/ansible-demo
 
 
@@ -51,7 +51,7 @@ TEMPLATES/singleVMIBMCloud
 
 https://github.com/niklaushirt/cam-demo
 
-IBMCloud_VM_Ansible/IBMCloud_VM_Ansible.json
+SERVICES/IBMCloud_VM_Ansible/IBMCloud_VM_Ansible.json
 
 ## Post install 
 
@@ -60,11 +60,44 @@ IBMCloud_VM_Ansible/IBMCloud_VM_Ansible.json
 
 
 
+
+
+
+
+
+# AWS Demo
+
+## Connection
+
+* AWS must be named `EC2`
+* Ansible Tower must be integrated as `AnsibleTower`
+* Ansible Templates lodaed from https://github.com/niklaushirt/ansible-demo
+
+
+## Import Templates
+https://github.com/niklaushirt/cam-demo
+
+TEMPLATES/singleVMAWS
+
+## Import Services
+
+https://github.com/niklaushirt/cam-demo
+
+SERVICES/AWS_VM_Ansible/AWS_VM_Ansible.json
+
+## Post install 
+
+* Verify step references
+* Replace Slack Webhooks (x2)
+
+
+
+
 # Others
 
-EC2Demo/MyEC2Demo.json
-HybridApp/HybridApp.json
-HybridDemo/HybridDemo.json
+STUFF/EC2Demo/MyEC2Demo.json
+STUFF/HybridApp/HybridApp.json
+STUFF/HybridDemo/HybridDemo.json
 
 
 
