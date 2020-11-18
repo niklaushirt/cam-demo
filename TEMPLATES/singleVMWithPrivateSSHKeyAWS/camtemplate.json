@@ -1,6 +1,6 @@
  {
-    "name": "Demo Virtual Server with SSH key",
-    "description": "A sample demo cloud resource template that creates a Debian virtual server and ssh key.",
+    "name": "Demo SingleVM AWS EC2",
+    "description": "Amazon EC2 Ubuntu 14.04 virtual server under an existing Virtual Private Cloud (VPC).",
     "version": "1.0",
     "imageUrl": "./assets/svg/IBM_WebSphere_Standalone.svg",
     "image": "tp_WAS_standalone.png",
@@ -9,43 +9,43 @@
     "manifest": {
       "template_type": "Terraform",
       "template_format": "HCL",
-      "template_provider": "IBM",
+      "template_provider": "Amazon EC2",
       "template": {
-        "templateData": "",
+        "templateData":"",
         "templateVariables": "",
         "templateOutput": ""
       },
       "template_source": {
         "githubRepoUrl": "",
         "githubAccessToken": "",
-        "relativePathToTemplateFolder": "TEMPLATES/singleVMWithPrivateSSHKeyVSPHERE",
+        "relativePathToTemplateFolder": "TEMPLATES/singleVMWithPrivateSSHKeyAWS",
         "templateFileName": "main.tf"
       }
     },
     "metadata": {
-      "displayName": "Demo 1 Virtual Server with SSH Key",
+      "displayName": "Amazon EC2 Virtual Server with SSH Key - HCL",
       "providerDisplayName": "IBM",
-      "longDescription": "Use this cloud resource template to quickly provision a Debian 7 64 bit virtual server with ssh key in a datacenter of your choice.",
+      "longDescription": "Use this cloud resource template to quickly provision a Ubuntu 14.04 64 bit virtual server with ssh key into an existing Virtual Private Cloud (VPC) and on an existing network.",
       "bullets": [
        {
          "title": "Clouds",
-         "description": "IBM Cloud/Softlayer"
+         "description": "Amazon Web Services (AWS)"
        },
        {
          "title": "Operating systems supported",
-         "description": "IBM Cloud: Centos 7"
+         "description": "AWS: Ubuntu 14.04 LTS"
        },
        {
          "title": "Topology",
-         "description": "IBM Cloud: 1 virtual machine"
+         "description": "AWS: 1 virtual machine"
        },
        {
          "title": "Default virtual machine settings",
-         "description": "<ul><li>IBM Cloud:<ul style=\"margin-left: 20px;\"><li>Flavor: Cores = 1, Memory = 1GB, Storage = 25GB SAN</li><li>Network: Private IP - Computed, Public IP - Computed</li></ul></li></ul>"
+         "description": "<ul><li>AWS:<ul style=\"margin-left: 20px;\"><li>Flavor: t1.nano, Cores = 1, Memory = 1GB</li><li>Network: Private IP - Computed, Public IP - Computed</li></ul></li></ul>"
        },
        {
          "title": "Usage and special notes",
-         "description": "<ol class=\"list-numbering\"><li>Creates a virtual server with an ssh key provided by the installer for development in a datacenter specified by the user.</li><li>Deployment takes approximately 5 minutes to complete.</li></ol>"
+         "description": "<ol class=\"list-numbering\"><li>Creates a virtual server with an ssh key provided by the installer for development into an existing virtual private cloud specified by the user.</li><li>Deployment takes approximately 5 minutes to complete.</li><li>To access the application and virtual machines, please see the instructions in the output log.</li></ol>"
        }
      ],
       "featuredImageUrl": "https://ibmpatternengine-staticcontent-prod.eu-gb.mybluemix.net/ic_patternengine_50.png",
