@@ -3,7 +3,7 @@
     "version": "1.0.0.0",
     "specVersion": "v3",
     "catalog_metadata": {
-      "name": "Dev Demo Tomcat on IBM Single VM",
+      "name": "Dev Demo Tomcat on AWS Single VM",
       "description": "",
       "image": "serviceicon_1.svg",
       "category": "Virtual Machine",
@@ -163,36 +163,37 @@
           "conditions": [],
           "templates": [
             {
-              "Demo SingleVM IBM Cloud": {
-                "title": "Demo SingleVM IBM Cloud_3a375d",
-                "template_name": "Demo SingleVM IBM Cloud",
+              "Demo SingleVM AWS EC2": {
+                "title": "Demo SingleVM AWS EC2_a9fcda",
+                "template_name": "Demo SingleVM AWS EC2",
                 "version": "master",
-                "id": "demosing25dc4169",
+                "id": "demosing7f896772",
                 "template_type": "Terraform",
-                "template_content_type": "IBM",
-                "template_provider": "IBM",
+                "template_content_type": "Amazon EC2",
+                "template_provider": "Amazon EC2",
                 "instance_name": "",
                 "template_data_objects": {},
                 "template_params": {
-                  "datacenter": "dal09",
-                  "hostname": "${input_parameters.vmname}",
-                  "domain": "${input_parameters.domain}"
+                  "aws_region": "eu-central-1",
+                  "aws_image": "centos7",
+                  "aws_image_size": "t2.small",
+                  "aws_ami_owner_id": "582147391765",
+                  "vpc_name_tag": "myopic",
+                  "subnet_name": "mysubnet"
                 },
                 "outputs": [
-                  "vm_ip",
+                  "ip_address",
                   "vm_public",
-                  "vm_private",
-                  "vm_public_urlenc",
-                  "vm_private_urlenc"
+                  "vm_private"
                 ],
                 "editable": true,
                 "cloud_connection_names": [
                   {
-                    "provider": "IBM",
-                    "connection_name": "IBM"
+                    "provider": "Amazon EC2",
+                    "connection_name": "EC2"
                   }
                 ],
-                "cloud_connection_name": "IBM",
+                "cloud_connection_name": "EC2",
                 "provider_engine_version": "0.11.11",
                 "isErrorFlow": false
               }
@@ -215,7 +216,7 @@
                   "extraVars": {},
                   "hostgroup": {
                     "None": "${templates.demovirt878f2a41.output.vm_ip}",
-                    "tomcat-servers": "${templates.demovirt878f2a41.output.vm_ip}"
+                    "tomcat-servers": "${templates.demosing7f896772.output.ip_address}"
                   }
                 },
                 "outputs": [
@@ -239,9 +240,9 @@
                 "cloud_connection_name": "AnsibleTower",
                 "template_data_objects": {},
                 "template_params": {
-                  "credential_name_suffix": "${templates.demovirt878f2a41.hostname}",
+                  "credential_name_suffix": "${templates.demosing7f896772.hostname}",
                   "user_name": "root",
-                  "ssh_private_key": "${templates.demovirt878f2a41.output.vm_private}",
+                  "ssh_private_key": "${templates.demosing7f896772.output.vm_private}",
                   "password": ""
                 },
                 "outputs": [
@@ -291,7 +292,6 @@
                     "accept": "application/json",
                     "Content-Type": "application/json"
                   },
-                  "method": "POST",
                   "payload": {
                     "blocks": [
                       {
@@ -333,7 +333,7 @@
                       "block_id": "section567",
                       "text": {
                         "type": "mrkdwn",
-                        "text": "\n :rocket: Your VM is available at: ${templates.demovirt878f2a41.output.vm_ip}  \n\n\n  Thank you for using our service."
+                        "text": "\n :rocket: Your VM is available at: ${templates.demosing7f896772.output.vm_ip}  \n\n\n  Thank you for using our service."
                       },
                       "accessory": {
                         "type": "image",
@@ -360,7 +360,6 @@
                     "accept": "application/json",
                     "Content-Type": "application/json"
                   },
-                  "method": "POST",
                   "payload": {
                     "blocks": [
                       {
@@ -402,7 +401,7 @@
                       "block_id": "section567",
                       "text": {
                         "type": "mrkdwn",
-                        "text": "\n :rocket: Access it <http://${templates.demovirt878f2a41.output.vm_ip}:8080|here>  \n\n\n Thank you for using our service."
+                        "text": "\n :rocket: Access it <http://${templates.demosing7f896772.output.vm_ip}:8080|here>  \n\n\n Thank you for using our service."
                       },
                       "accessory": {
                         "type": "image",
@@ -417,7 +416,7 @@
           ],
           "notifications": [],
           "sequence": {
-            "0": "demosing25dc4169",
+            "0": "demosing7f896772",
             "1": "resthookc7562138",
             "2": "inventor86d3e6ea",
             "3": "credentie32da59b",

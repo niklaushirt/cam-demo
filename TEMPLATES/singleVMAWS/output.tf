@@ -1,7 +1,7 @@
 
 
 output "ip_address" {
-  value = "${length(aws_instance.aws_vm.public_ip) > 0 ? aws_instance.orpheus_ubuntu_micro.public_ip : aws_instance.aws_vm.private_ip}"
+  value = "${length(aws_instance.aws_vm.public_ip) > 0 ? aws_instance.aws_vm.public_ip : aws_instance.aws_vm.private_ip}"
 }
 
 

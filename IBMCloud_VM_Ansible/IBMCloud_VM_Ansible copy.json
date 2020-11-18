@@ -163,11 +163,11 @@
           "conditions": [],
           "templates": [
             {
-              "Demo SingleVM IBM Cloud": {
-                "title": "Demo SingleVM IBM Cloud_3a375d",
-                "template_name": "Demo SingleVM IBM Cloud",
+              "Demo Virtual Server with SSH key": {
+                "title": "Demo Virtual Server with SSH key_84c2ea",
+                "template_name": "Demo Virtual Server with SSH key",
                 "version": "master",
-                "id": "demosing25dc4169",
+                "id": "demovirt878f2a41",
                 "template_type": "Terraform",
                 "template_content_type": "IBM",
                 "template_provider": "IBM",
@@ -192,9 +192,9 @@
                     "connection_name": "IBM"
                   }
                 ],
-                "cloud_connection_name": "IBM",
                 "provider_engine_version": "0.11.11",
-                "isErrorFlow": false
+                "isErrorFlow": false,
+                "cloud_connection_name": "IBM"
               }
             },
             {
@@ -317,7 +317,7 @@
                     ]
                   }
                 },
-                "url": "https://hooks.slack.com/services/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",
+                "url": "https://hooks.slack.com/services/CHANGEME",
                 "method": "POST",
                 "payload": {
                   "blocks": [
@@ -386,7 +386,7 @@
                     ]
                   }
                 },
-                "url": "https://hooks.slack.com/services/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",
+                "url": "https://hooks.slack.com/services/CHANGEME",
                 "method": "POST",
                 "payload": {
                   "blocks": [
@@ -417,7 +417,7 @@
           ],
           "notifications": [],
           "sequence": {
-            "0": "demosing25dc4169",
+            "0": "demovirt878f2a41",
             "1": "resthookc7562138",
             "2": "inventor86d3e6ea",
             "3": "credentie32da59b",

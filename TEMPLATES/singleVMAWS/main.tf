@@ -33,7 +33,7 @@ resource "tls_private_key" "mykey" {
 # This will create a new SSH key that will show up under the \
 # Devices>Manage>SSH Keys in the SoftLayer console.
 resource "ibm_compute_ssh_key" "vm_public_key" {
-  label      = "Demo Public Key-${var.hostname}-${random_uuid.myuuid.result}"
+  label      = "Demo Public Key-${var.ibm_stack_name}-${random_uuid.myuuid.result}"
   public_key = "${tls_private_key.mykey.public_key_openssh}"
 }
 
