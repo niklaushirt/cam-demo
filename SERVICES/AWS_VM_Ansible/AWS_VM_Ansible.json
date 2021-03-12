@@ -1,6 +1,6 @@
 {
   "service": {
-    "version": "1.0.0.0",
+    "version": "1.0.0.1",
     "specVersion": "v3",
     "catalog_metadata": {
       "name": "Dev Demo Tomcat on AWS Single VM",
@@ -130,7 +130,21 @@
         "type": "provision",
         "name": "Provision",
         "description": "Default action for deployment of service",
-        "input_parameters": [],
+        "input_parameters": [
+          {
+            "name": "aws_image_size",
+            "label": "AWS Image Instance Size",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": false,
+            "secured": false,
+            "description": "AWS Image Instance Size",
+            "default": "t2.small",
+            "editable": true
+          }
+        ],
         "flow": {
           "conditions": [],
           "templates": [
@@ -148,7 +162,7 @@
                 "template_params": {
                   "aws_region": "eu-central-1",
                   "aws_image": "centos",
-                  "aws_image_size": "t2.small",
+                  "aws_image_size": "${input_parameters.aws_image_size}",
                   "aws_ami_owner_id": "582147391765",
                   "vpc_name_tag": "myvpc",
                   "subnet_name": "mysubnet"
@@ -260,7 +274,8 @@
                 "copyToList": "",
                 "subject": "Your order ${svc_instance.name} is being provisioned",
                 "body": "The VM for your order ${svc_instance.name} is being provisioned.",
-                "editable": true
+                "editable": true,
+                "isErrorFlow": false
               }
             },
             {
@@ -321,10 +336,46 @@
     ],
     "plans": [
       {
-        "name": "Standard",
-        "description": "To deploy a Standard plan",
-        "actions": [],
+        "name": "Bronze",
         "plan_parameters": []
+      },
+      {
+        "name": "Silver",
+        "description": "",
+        "plan_parameters": [
+          {
+            "name": "aws_image_size",
+            "label": "AWS Image Instance Size",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": false,
+            "secured": false,
+            "description": "AWS Image Instance Size",
+            "editable": true,
+            "default": "t2.medium1"
+          }
+        ]
+      },
+      {
+        "name": "Gold",
+        "description": "",
+        "plan_parameters": [
+          {
+            "name": "aws_image_size",
+            "label": "AWS Image Instance Size",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": false,
+            "secured": false,
+            "description": "AWS Image Instance Size",
+            "editable": true,
+            "default": "t2.large1"
+          }
+        ]
       }
     ]
   }
